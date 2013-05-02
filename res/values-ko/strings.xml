@@ -127,6 +127,7 @@
     <string name="summary_expanded_desktop">%1$s</string>
     <string name="expanded_desktop_summary">확장 데스크톱 모드를 보거나 변경</string>
     <string name="expanded_desktop_disabled">꺼짐</string>
+    <string name="title_show_volume_state_toggle">볼륨 상태</string>
     <string name="expanded_desktop_only_nav_bar">소프트 키 숨김</string>
     <string name="expanded_desktop_only_status_bar">상태바 숨김</string>
     <string name="expanded_desktop_both_hidden">상태바 및 소프트 키 숨김</string>
@@ -280,7 +281,7 @@
     <string name="battery_bar_style_title">배터리 바 스타일</string>
     <string name="battery_bar_thickness_title">배터리 바 두께</string>
     <string name="battery_bar_animate_title">충전 애니메이션</string>
-    <string name="battery_bar_animate_summary">충전 애니메이션을 사용하면 성능에 좋지 않은 영향을 끼칠 수 있습니다.</string>
+    <string name="battery_bar_animate_summary">충전 애니메이션 사용은 성능에 좋지 않은 영향을 끼칠 수 있습니다.</string>
 
     <!-- Statusbar | Signal -->
     <string name="signal_style">신호 텍스트 스타일</string>
@@ -341,8 +342,8 @@
     <string name="toggle_style_scrollable">알림 (예전 방식 + 스크롤)</string>
     <string name="toggle_swap_handle_side">드래그 핸들을 오른쪽에 배치</string>
     <string name="add_toggles">Change toggles</string>
-    <string name="screenshot_delay_title">스크린샷 딜레이</string>
-    <string name="screenshot_delay_summary">스크린샷 토글 사용후 작동까지의 딜레이를 설정합니다.</string>
+    <string name="screenshot_delay_title">스크린샷 지연</string>
+    <string name="screenshot_delay_summary">스크린샷 토글 사용후 작동까지의 지연 시간을 설정합니다.</string>
     <string name="toggle_action_title">%1$s의 활동 및 아이콘</string>
     <string name="toggle_action_title_alt">길게 눌렀을 때의 %1$s의 활동 및 아이콘</string>
     <string name="toggle_longpress_title">길게 눌렀을 때의 %1$s의 활동</string>
@@ -526,7 +527,7 @@
     <string name="top_of_navbar">소프트 키 위</string>
     <string name="bottom_of_navbar">소프트 키 아래</string>
     <string name="regular">일반</string>
-    <string name="center_mirrored">중앙에 모아짐</string>
+    <string name="center_mirrored">중앙에 모아진 스타일</string>
     <string name="size_0_dp">0 dp (꺼짐)</string>
     <string name="size_1_dp">1 dp</string>
     <string name="size_2_dp">2 dp</string>
@@ -589,6 +590,12 @@
     <!-- Auto-Hide Status Bar -->
     <string name="auto_hide_statusbar">상태바 자동 숨김</string>
     <string name="auto_hide_statusbar_summary">알림이 없을 때에 상태바가 자동으로 숨겨집니다.</string>
+
+    <!-- Hidden Statusbar Pulldown -->
+    <string name="hidden_statusbar_pulldown_title">숨겨진 상태바 내림</string>
+    <string name="hidden_statusbar_pulldown_summary">전체화면 앱에서 상태바를 활성화하여 사용하는 것을 허용합니다.</string>
+    <string name="hidden_statusbar_pulldown_timeout_title">숨겨진 상태바 사용 시간 제한</string>
+    <string name="hidden_statusbar_pulldown_timeout_summary">상태바를 사용할 시간 제한을 설정합니다.</string>
 
     <!-- Nav Bar Widgets -->
     <string name="navbar_widgets">소프트 키 위젯</string>
@@ -866,6 +873,10 @@
     <string name="lockscreen_battery_status_alwayson">항상 보임</string>
 
     <string name="ls_shortcuts_title">잠금화면</string>
+    
+    <string name="screen_security_category">화면 보안</string>
+    <string name="screen_security_title">잠금화면</string>
+    <string name="screen_security_summary">화면 보안 및 지연 시간을 확인하거나 변경합니다.</string>
 
     <!-- ParanoidAndroid: Lockscreen Shortcuts -->
     <string name="icon_picker_type">아이콘 형태 선택 :</string>
@@ -923,6 +934,36 @@
     <string name="see_through_summary">잠금화면에서 구동중인 앱 화면을 들여다 볼 수 있습니다.</string>
     <string name="ls_color_alpha_title">잠금화면 색조</string>
     <string name="ls_color_alpha_summary">잠금화면의 색조를 변경합니다.</string>
+    
+    <!-- Screen security - Screen security   -->
+    <string name="additional_options_title">부가 옵션</string>
+    <string name="unlock_menu_unlock_title">메뉴 잠금해제</string>
+    <string name="unlock_menu_unlock_summary">메뉴 버튼을 눌러 기기의 잠금을 해제합니다.</string>
+    <string name="unlock_home_unlock_title">홈 잠금해제</string>
+    <string name="unlock_home_unlock_summary">홈 버튼을 눌러 기기의 잠금을 해제합니다.</string>
+    <string name="unlock_quick_unlock_control_title">빠른 잠금해제</string>
+    <string name="unlock_quick_unlock_control_summary">PIN/비밀번호가 맞을 때 바로 잠금을 해제합니다.</string>
+
+    <!-- Slide lock delay -->
+    <string name="delay_and_timeout_title">잠금 지연</string>
+    <string name="slide_lock_delay_title">잠금화면 지연</string>
+    <string name="slide_lock_timeout_delay_title">시간 제한 후 지연 시간</string>
+    <string name="slide_lock_screenoff_delay_title">화면을 끈 후 지연 시간</string>
+    <string name="slide_lock_delay_none">없음</string>
+    <string name="slide_lock_delay_1s">1초</string>
+    <string name="slide_lock_delay_5s">5초</string>
+    <string name="slide_lock_delay_10s">10초</string>
+    <string name="slide_lock_delay_15s">15초</string>
+    <string name="slide_lock_delay_30s">30초</string>
+    <string name="slide_lock_delay_1m">1분</string>
+    <string name="slide_lock_delay_5m">5분</string>
+    <string name="slide_lock_delay_10m">10분</string>
+    <string name="slide_lock_delay_30m">30분</string>
+
+    <!-- Lock screen vibrate settings -->
+    <string name="lockscreen_vibrate_enabled_title">진동</string>
+    <string name="lockscreen_vibrate_enabled_head">잠금 해제중 진동을 생기게 합니다.</string>
+
 
     <!--- Lock clock -->
     <string name="lock_clock_title">시계 위젯</string>
@@ -1006,7 +1047,7 @@
     <string name="navbar_height_title">소프트 키 높이</string>
 
     <string name="alert_reboot">다시 부팅 필요</string>
-    <string name="alert_reboot_message">이 변경은 다시 부팅을 필요로 합니다.  \n다시 부팅하겠습니까?</string>
+    <string name="alert_reboot_message">이 변경은 다시 시작을 필요로 합니다.  \n다시 시작하시겠습니까?</string>
 	
 
 </resources>
