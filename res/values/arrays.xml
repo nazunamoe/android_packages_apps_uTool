@@ -404,6 +404,7 @@
         <item>@string/ribbon_swipe_left</item>
         <item>@string/ribbon_swipe_right</item>
         <item>@string/ribbon_swipe_bottom</item>
+        <item>@string/app_window</item>
     </string-array>
     <string-array name="ribbon_chooser_values" translatable="false">
         <item>0</item>
@@ -412,6 +413,7 @@
         <item>2</item>
         <item>4</item>
         <item>5</item>
+        <item>10</item>
     </string-array>
     <string-array name="navigation_bar_width_entries" translatable="false">
         <item>@string/size_42_dp_default</item>
@@ -1122,6 +1124,7 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+<<<<<<< HEAD
 
     <!-- Hidden Statusbar Pulldown -->
     <string-array name="hidden_statusbar_pulldown_timeout_entries" translatable="false">
@@ -1137,4 +1140,19 @@
         <item>10000</item>
     </string-array>
 
+=======
+    <!-- Window columns quantity -->
+    <string-array name="window_columns_entries" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="window_columns_values" translatable="false">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+>>>>>>> e69b6c0... RC: Ribbons - Long swipe App window.
 </resources>
