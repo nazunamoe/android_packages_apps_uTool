@@ -322,8 +322,9 @@
     <string name="toggle_action_title">Action %1$s &amp; icône</string>
     <string name="toggle_action_title_alt">Appui long action %1$s &amp; icône</string>
     <string name="toggle_longpress_title">Appui long de l\'action %1$s</string>
-    <string name="custom_toggle_action">Comment ça marche ?</string>
-    <string name="custom_toggle_desc">En Mode Basique, l\'action du Toggle Custom change à chaque appui court. Un appui long lancera l\'action affichée. Ceci est particulièrement utile pour les utilisateurs qui veulent un Toggle pour lancer des applications. \nAvec le Mode avancé, le Toggle vous permet de lancer une action à chaque clic. Avec un appui long, les autres actions seront également mis à votre disposition dans ce mode. Ceci est particulièrement utile pour les utilisateurs qui désirent un toggle qui effectue des tâches qui ne lance pas une nouvelle application.</string>
+    <string name="custom_toggle_desc">Chaque appui fera passer le Toggle à l\'action suivante. Si votre Toggle a une action vide, et pas d\'icône défini, l\'action de l\'appui long sera affichée.</string>
+    <string name="custom_help_title">Comment ça marche</string>
+    <string name="custom_help_summary">Appuyer pour plus d\'informations</string>
     <string name="custom_toggle_okay">Ok</string>
     <string name="custom_toggle_cat">Toggle personnalisé</string>
     <string name="custom_button_cat">Actions du Toggle personnalisé</string>
@@ -333,9 +334,6 @@
     <string name="boot_action_summary">Lancera l\'état 1 au démarrage</string>
     <string name="match_icon_action_title">Lancé l\'action affichée</string>
     <string name="match_icon_action_summary">Useful for aligning task to displayed icon per your specific usage</string>
-    <string name="advanced_toggle_title">Mode Basique ou Avancé</string>
-    <string name="advanced_toggle_summaryon">Avancé (Actions sur Appui Long et Court)</string>
-    <string name="advanced_toggle_summaryoff">Basique (Actions sur Appui Long)</string>
     <string name="action_toggle_title">Actions du Toggle</string>
     <string name="action_toggle_summary">Ordre des actions du Toggle, de gauche à droite.</string>
     <string name="no_dclick">Pas d\'action</string>
@@ -488,6 +486,8 @@
     <string name="navbar_delete_menu">Supprimer le bouton</string>
     
     <!-- Hidden Statusbar Pulldown -->
+    <string name="auto_hide_statusbar">Masquer auto la barre d\'état</string>
+    <string name="auto_hide_statusbar_summary">La barre d\'état sera masquée automatiquement quand il n\'y aura pas de notifications</string>
     <string name="hidden_statusbar_pulldown_title">Barre d\'état temporaire</string>
     <string name="hidden_statusbar_pulldown_summary">Lorsque la barre d\'état est masquée, un swipe vers le bas l\'affichera quelques secondes</string>
     <string name="hidden_statusbar_pulldown_timeout_title">Délai de la barre d\'état</string>
@@ -680,7 +680,7 @@
     <string name="time_1_second">1 seconde</string>
     <string name="time_1_5_seconds">1,5 secondes</string>
     <string name="time_2_seconds">2 secondes</string>
-    <string name="time_2_5_seconds">2,5 secondes.</string>
+    <string name="time_2_5_seconds">2,5 secondes</string>
     <string name="time_3_seconds">3 secondes</string>
     <string name="time_3_5_seconds">3,5 secondes</string>
     <string name="time_4_seconds">4 secondes</string>
@@ -701,26 +701,6 @@
     <string name="very_high">Très Élevée</string>
     <string name="laserbeam">Extrême</string>
     
-    <!-- Lock screen shortcuts -->
-    <string name="picker_activities">Activités</string>
-    <string name="icon_picker_choose_icon_title">Choisir l\'icône</string>
-    <string name="icon_picker_alarm">Alarme</string>
-    <string name="icon_picker_browser">Navigateur</string>
-    <string name="icon_picker_calendar">Calendrier</string>
-    <string name="icon_picker_camera">Appareil photo</string>
-    <string name="icon_picker_chrome">Chrome</string>
-    <string name="icon_picker_email">Email</string>
-    <string name="icon_picker_email2">Email (Holo)</string>
-    <string name="icon_picker_gallery">Galerie</string>
-    <string name="icon_picker_google_small">Google (petit)</string>
-    <string name="icon_picker_movie">Film</string>
-    <string name="icon_picker_music">Musique</string>
-    <string name="icon_picker_nav_normal">Navigation</string>
-    <string name="icon_picker_phone">Téléphone</string>
-    <string name="icon_picker_podcast">Podcasts</string>
-    <string name="icon_picker_search">Rechercher</string>
-    <string name="icon_picker_sms">Messages</string>
-
     <!-- String for IconPicker -->
     <string name="icon_picker_title">Choisissez la source de l\'icône</string>
     <string name="icon_picker_system_icons_title">Icônes système</string>
@@ -733,19 +713,6 @@
     <string name="lockscreen_battery_status_charging">Lors du chargement</string>
     <string name="lockscreen_battery_status_alwayson">Toujours afficher</string>
     <string name="ls_shortcuts_title">Raccourcis et applications</string>
-
-    <!-- ParanoidAndroid: Lockscreen Shortcuts -->
-    <string name="icon_picker_type">Sélectionner le type de l\'icône:</string>
-    <string name="icon_default">Par défaut</string>
-    <string name="icon_custom">Personnalisé</string>
-    <string name="lock_screen_shortcuts_title">Icônes de raccourcis</string>
-    <string name="lock_screen_shortcuts_reset_message">Réinitialiser les raccourcis ?</string>
-    <string name="lock_screen_shortcuts_summary">Afficher ou modifier les icônes de raccourcis personnalisés</string>
-    <string name="lock_screen_shortcuts_add">Ajouter</string>
-    <string name="lock_screen_shortcuts_reset">Réinitialiser</string>
-    <string name="lock_screen_shortcuts_limit">Seulement 6 raccourcis sont permis !</string>
-    <string name="dialog_delete_title">Suppression</string>
-    <string name="dialog_delete_message">Supprimer l\'élément sélectionné ?</string>
 
     <!-- Lock Screen Shortcuts -->
     <string name="lockscreen_target_info">Glisser pour assigner les raccourcis</string>
