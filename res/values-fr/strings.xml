@@ -752,11 +752,9 @@
     <string name="lockscreen_auto_rotate_title">Rotation auto. de l\'écran de verr.</string>
     <string name="lockscreen_auto_rotate_summary">L\'écran de verrouillage aura la capacité de rotation par l\'intermédiaire du capteur d\'orientation de l\'appareil. Ceci est indépendant de la rotation automatique du reste du système.</string>
     <string name="lockscreen_all_widgets_title">Permettre tous les widgets</string>
-    <string name="lockscreen_all_widgets_summary">Attention ** Certains widgets ne sont pas destinés à être utilisés sur le lockscreen. Le développeur du widget, l\'équipe XY, ne sont pas responsables de votre choix de widgets sur le lockscreen. Choisissez vos responsabilités.</string>
+    <string name="lockscreen_all_widgets_summary">*Attention* Certains widgets ne sont pas destinés à être utilisés sur l\'écran de verrouillage. Le développeur du widget, l\'équipe XYE, ne sont pas responsables de votre choix de widgets.</string>
     <string name="lockscreen_unlimited_widgets_title">Autoriser un nombre illimité de widgets</string>
-    <string name="lockscreen_unlimited_widgets_summary">Attention ** Ajouter trop de widgets peut causer des problèmes de lag avec les principaux lockscreen.</string>
-    <string name="lockscreen_longpress_challenge_title">Déverrouiller par Appui Long</string>
-    <string name="lockscreen_longpress_challenge_summary">Cela permet à votre appareil d\'être déverrouillé avec les widgets maximisés par un appui long sur l\'icône de verrouillage.</string>
+    <string name="lockscreen_unlimited_widgets_summary">*Attention* Ajouter trop de widgets peut causer des problèmes de lenteur sur l\'écran de verrouillage.</string>
 
     <!-- Screen security -->
     <string name="screen_security_category">Sécurité</string>
@@ -770,7 +768,9 @@
     <string name="unlock_home_unlock_summary">Appuyer sur le bouton Accueil déverrouille l\'appareil</string>
     <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
     <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le code PIN / mot de passe correct est entré.</string>
-
+    <string name="lockscreen_longpress_challenge_title">Déverrouiller par Appui Long</string>
+    <string name="lockscreen_longpress_challenge_summary">Cela permet à votre appareil d\'être déverrouillé avec les widgets maximisés par un appui long sur l\'icône de verrouillage.</string>
+    
     <string name="delay_and_timeout_title">Délai de verrouillage</string>
     <string name="slide_lock_delay_title">Délai du verrouillage de l\'écran</string>
     <string name="slide_lock_timeout_delay_title">Délai après temps écoulé</string>
@@ -848,8 +848,8 @@
     <string name="customdpigroup_summary">Ajouter un groupe de densité personnalisée</string>
     <string name="custom_dpi">DPI :</string>
     <string name="customdpigroup_group_exists">Le groupe de densité désiré existe déjà</string>
-    <string name="per_app_layout_title">Par-app-Affichage</string>
-    <string name="per_app_layout_summary">Définir un mode d\'affichage pour chaque application</string>
+    <string name="per_app_layout_title">Disposition par app</string>
+    <string name="per_app_layout_summary">Définir une disposition pour chaque application</string>
     <string name="per_app_layout_list_title">Liste des applications</string>
     <string name="per_app_layout_alert_title">Sélectionner une disposition</string>
     <string name="widgets_title">Widgets</string>
@@ -859,10 +859,10 @@
     <string name="widget_alert_remove_widget">Supprimer le widget</string>
     <string name="widget_remove_widget">Supprimer le widget %s de la liste ?</string>
     <string name="widget_add_title">Choisir une application</string>
-    <string name="expanded_title">Par-app-Étendu</string>
+    <string name="expanded_title">Mode Étendu par app</string>
     <string name="expanded_summary">Définir quelle application doit être en Bureau Étendu automatiquement</string>
     <string name="add_expand">Ajouter une application</string>
-    <string name="expand_list">Mode Étendu automatique</string>
+    <string name="expand_list">Liste des applications</string>
     <string name="expand_add_title">Choisir une application</string>
     <string name="expand_alert_remove_application">Supprimer</string>
     <string name="expand_remove_application">Supprimer l\'application %s du Mode Étendu auto ?</string>
