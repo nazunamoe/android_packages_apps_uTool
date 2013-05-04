@@ -276,6 +276,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             int maxNotIcons = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.MAX_NOTIFICATION_ICONS, maxNotIcons);
+            Helpers.restartSystemUI();
             return true;
         }
         return false;
