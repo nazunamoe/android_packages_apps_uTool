@@ -17,15 +17,17 @@ import com.xylon.settings.SettingsPreferenceFragment;
 
 public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    private static final String PREF_SCREENSHOT = "show_screenshot";
-    private static final String PREF_AIRPLANE_TOGGLE = "show_airplane_toggle";
     private static final String PREF_EXPANDED_DESKTOP = "show_expanded_desktop";
+    private static final String PREF_SCREENSHOT = "show_screenshot";
+    private static final String PREF_TORCH_TOGGLE = "show_torch_toggle";
+    private static final String PREF_AIRPLANE_TOGGLE = "show_airplane_toggle";
     private static final String PREF_NAVBAR_HIDE = "show_navbar_hide";
     private static final String PREF_VOLUME_STATE_TOGGLE = "show_volume_state_toggle";
     private static final String PREF_REBOOT_KEYGUARD = "show_reboot_keyguard";
 
     SwitchPreference mExpandedDesktopPref;
     SwitchPreference mShowScreenShot;
+    SwitchPreference mShowTorchToggle;
     SwitchPreference mShowAirplaneToggle;
     SwitchPreference mShowNavBarHide;
     SwitchPreference mShowVolumeStateToggle;
@@ -43,6 +45,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
                 .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_SCREENSHOT,
                 0) == 1);
         mShowScreenShot.setOnPreferenceChangeListener(this);
+
+        mShowTorchToggle = (SwitchPreference) findPreference(PREF_TORCH_TOGGLE);
+        mShowTorchToggle.setChecked(Settings.System.getBoolean(mContentRes,
+                Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE, false));
+        mShowTorchToggle.setOnPreferenceChangeListener(this);
 
         mShowAirplaneToggle = (SwitchPreference) findPreference(PREF_AIRPLANE_TOGGLE);
         mShowAirplaneToggle.setChecked(Settings.System.getInt(getActivity()
@@ -89,6 +96,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.POWER_DIALOG_SHOW_SCREENSHOT,
                     (Boolean) value ? 1 : 0);
+            return true;
+        } else if (preference == mShowTorchToggle) {
+            Settings.System.putBoolean(mContentRes,
+                    Settings.System.POWER_DIALOG_SHOW_TORCH_TOGGLE,
+                    (Boolean) value);
             return true;
         } else if (preference == mShowAirplaneToggle) {
             Settings.System.putInt(getActivity().getContentResolver(),

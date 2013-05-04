@@ -14,6 +14,10 @@
         android:title="@string/title_show_screenshot" />
 
     <SwitchPreference
+        android:key="show_torch_toggle"
+        android:title="@string/title_show_torch_toggle" />
+
+    <SwitchPreference
         android:key="show_navbar_hide"
         android:title="@string/title_show_navbar_hide" />
         

@@ -118,6 +118,7 @@
     <!-- Power Menu -->
     <string name="title_show_screenshot">Screenshot</string>
     <string name="title_show_airplane_toggle">Airplane mode</string>
+    <string name="title_show_torch_toggle">Torch</string>
     <string name="power_menu_expanded_desktop">Expanded desktop</string>
     <string name="expanded_desktop_cat">Advanced</string>
     <string name="summary_expanded_desktop">%1$s</string>
