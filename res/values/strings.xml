@@ -983,7 +983,7 @@
     <string name="dpi_group_app_list">Applications list</string>
     <string name="dpi_group_alert_add_app_title">Choose an application</string>
     <string name="dpi_groups_alert_remove_app">Remove application</string>
-    <string name="dpi_groups_remove_app">Remove %s application from group?</string>
+    <string name="dpi_groups_remove_app">Remove %s from group?</string>
     <string name="dpi_groups_backuprestore_title">Backup and restore</string>
     <string name="dpi_groups_auto_backup">Auto Backup</string>
     <string name="dpi_groups_auto_backup_summary">Save your configuration with every change</string>
@@ -1018,7 +1018,7 @@
     <string name="expand_list">Application List</string>
     <string name="expand_add_title">Choose an application</string>
     <string name="expand_alert_remove_application">Remove Application</string>
-    <string name="expand_remove_application">Remove %s application from expanding automatically?</string>
+    <string name="expand_remove_application">Remove %s from expanding automatically?</string>
 
 
     <string name="navbar_height_title">Navigation Bar Height</string>
