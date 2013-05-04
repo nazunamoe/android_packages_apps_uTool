@@ -66,12 +66,20 @@ public class Applications {
         addWidget(mContext, findAppInfo(mContext, packageName));
     }
 
+    public static void addExpand(Context mContext, String packageName) {
+        addExpand(mContext, findAppInfo(mContext, packageName));
+    }
+
     public static void addApplication(Context mContext, AppInfo app, int dpi) {
         setProperty(mContext, app.pack, app.pack + ".dpi", String.valueOf(dpi), true);
     }
 
     public static void addWidget(Context mContext, AppInfo app) {
         setProperty(mContext, app.pack, app.pack + ".force", "1", false);
+    }
+
+    public static void addExpand(Context mContext, AppInfo app) {
+        setProperty(mContext, app.pack, app.pack + ".expand", "1", false);
     }
 
     public static void addApplicationLayout(Context mContext, String packageName, int layout) {
@@ -119,6 +127,10 @@ public class Applications {
         setProperty(mContext, packageName, packageName + ".force", "0", true);
     }
 
+    public static void removeExpand(Context mContext, String packageName) {
+        setProperty(mContext, packageName, packageName + ".expand", "0", true);
+    }
+
     public static boolean isAppDpiProperty(String property) {
         return property.endsWith(".dpi")
                 && !property.startsWith(ExtendedPropertiesUtils.BEERBONG_PREFIX)
@@ -134,6 +146,10 @@ public class Applications {
 
     public static AppInfo[] getWidgetList(Context mContext) {
         return getApplicationList(mContext, "force", "1");
+    }
+
+    public static AppInfo[] getExpandList(Context mContext) {
+        return getApplicationList(mContext, "expand", "1");
     }
 
     private static AppInfo[] getApplicationList(Context mContext, String property, String value) {
@@ -240,6 +256,8 @@ public class Applications {
             packageName = packageName.substring(0, packageName.lastIndexOf(".dpi"));
         } else if (packageName.endsWith(".force")) {
             packageName = packageName.substring(0, packageName.lastIndexOf(".force"));
+        } else if (packageName.endsWith(".expand")) {
+            packageName = packageName.substring(0, packageName.lastIndexOf(".expand"));
         }
         if (appList.size() == 0) {
             getApplicationList(mContext);
