@@ -682,6 +682,9 @@
     <string name="tablet_cat">Tablet options</string>
     <string name="hide_extras">Hide extras</string>
     <string name="hide_extras_summary">Hide some systembar stuff i.e. the compat mode button</string>
+    <!-- Status bar notification limit -->
+    <string name="status_bar_max_notifications_title">Limit of notifications</string>
+    <string name="status_bar_max_notifications_summary">Select the limit of notification icons to be shown on status bar. Applies only to portrait orientation</string>
 
     <!-- General UI | CRT Animation Modifications -->
 
