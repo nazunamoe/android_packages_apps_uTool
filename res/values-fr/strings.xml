@@ -847,7 +847,7 @@
     <string name="customdpigroup_summary">Ajouter un groupe de densité personnalisée</string>
     <string name="custom_dpi">DPI :</string>
     <string name="customdpigroup_group_exists">Le groupe de densité désiré existe déjà</string>
-    <string name="per_app_layout_title">Per-app-Layout</string>
+    <string name="per_app_layout_title">Par-app-Affichage</string>
     <string name="per_app_layout_summary">Définir un mode d\'affichage pour chaque application</string>
     <string name="per_app_layout_list_title">Liste des applications</string>
     <string name="per_app_layout_alert_title">Sélectionner une disposition</string>
@@ -858,7 +858,13 @@
     <string name="widget_alert_remove_widget">Supprimer le widget</string>
     <string name="widget_remove_widget">Supprimer le widget %s de la liste ?</string>
     <string name="widget_add_title">Choisir une application</string>
-
+    <string name="expanded_title">Par-app-Étendu</string>
+    <string name="expanded_summary">Définir quelle application doit être en Bureau Étendu automatiquement</string>
+    <string name="add_expand">Ajouter une application</string>
+    <string name="expand_list">Mode Étendu automatique</string>
+    <string name="expand_add_title">Choisir une application</string>
+    <string name="expand_alert_remove_application">Supprimer</string>
+    <string name="expand_remove_application">Supprimer l\'application %s du Mode Étendu auto ?</string>
     <string name="navbar_height_title">Hauteur de la barre de navigation</string>
 
     <string name="alert_reboot">Redémarrage requis</string>
