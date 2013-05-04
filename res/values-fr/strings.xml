@@ -103,6 +103,7 @@
     <string name="title_show_screenshot">Capture d\'écran</string>
     <string name="title_show_airplane_toggle">Mode avion</string>
     <string name="power_menu_expanded_desktop">Bureau étendu</string>
+    <string name="title_show_torch_toggle">Torche</string>
     <string name="expanded_desktop_cat">Avancé</string>
     <string name="expanded_desktop_summary_status_bar">Barre d\'état visible</string>
     <string name="expanded_desktop_summary_no_status_bar">Barre d\'état masquée</string>
@@ -366,7 +367,7 @@
     <string name="notifications">Notifications</string>
     <string name="custom_app">Application personnalisée</string>
     <string name="menu_power">Menu Power</string>
-    <string name="aokp_ribbon">Ribbon AOKP</string>
+    <string name="aokp_ribbon">Ruban AOKP</string>
     <string name="nav_widgets">Widgets de Navigation</string>
     <string name="blank">Rien</string>
     <string name="none">Aucun</string>
@@ -500,8 +501,8 @@
     <string name="navbar_widget_summary">Widget %1$s sur %2$s</string>
     <string name="navbar_widget_summary_add">Appuer pour ajouter un Widget</string>
     <string name="navbar_widgets_title">Configurer les widgets</string>
-    <string name="navbar_widgets_shiftLeft">Shift gauche</string>
-    <string name="navbar_widgets_shiftRight">Shift droit</string>
+    <string name="navbar_widgets_shiftLeft">Maj gauche</string>
+    <string name="navbar_widgets_shiftRight">Maj droit</string>
     <string name="navbar_widgets_delete">Supprimer widget</string>
 
     <!-- Nav Ring Targets -->
