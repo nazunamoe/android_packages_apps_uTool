@@ -81,7 +81,6 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_FULLSCREEN_KEYBOARD = "fullscreen_keyboard";
     private static final String PREF_RECENTS_RAM_BAR = "recents_ram_bar";
     private static final String PREF_HIDE_EXTRAS = "hide_extras";
-    private static final String STATUS_BAR_MAX_NOTIF = "status_bar_max_notifications";
     private static final String PREF_POWER_CRT_MODE = "system_power_crt_mode";
     private static final String PREF_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final String PREF_KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
@@ -90,15 +89,14 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     private static final int TIMEOUT_DEFAULT = 5000; // 5s
 
     Preference mRamBar;
-    CheckBoxPreference mCrtOff;
-    CheckBoxPreference mFullscreenKeyboard;
-    CheckBoxPreference mHideExtras;
-    CheckBoxPreference mKeyboardRotationToggle;
     CheckBoxPreference mShowActionOverflow;
+    CheckBoxPreference mHideExtras;
     CheckBoxPreference mWakeUpWhenPluggedOrUnplugged;
-    ListPreference mKeyboardRotationTimeout;
+    CheckBoxPreference mFullscreenKeyboard;
+    CheckBoxPreference mCrtOff;
     ListPreference mCrtMode;
-    ListPreference mStatusBarMaxNotif;
+    CheckBoxPreference mKeyboardRotationToggle;
+    ListPreference mKeyboardRotationTimeout;
 
     private boolean mIsCrtOffChecked = false;
 
@@ -167,12 +165,6 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
         mHideExtras = (CheckBoxPreference) findPreference(PREF_HIDE_EXTRAS);
         mHideExtras.setChecked(Settings.System.getBoolean(cr,
                        Settings.System.HIDE_EXTRAS_SYSTEM_BAR, false));
-
-        mStatusBarMaxNotif = (ListPreference) prefSet.findPreference(STATUS_BAR_MAX_NOTIF);
-        int maxNotIcons = Settings.System.getInt(cr,
-                Settings.System.MAX_NOTIFICATION_ICONS, 2);
-        mStatusBarMaxNotif.setValue(String.valueOf(maxNotIcons));
-        mStatusBarMaxNotif.setOnPreferenceChangeListener(this);
 
         mRamBar = findPreference(PREF_RECENTS_RAM_BAR);
         updateRamBar();
@@ -271,11 +263,6 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.KEYBOARD_ROTATION_TIMEOUT, timeout);
             updateRotationTimeout(timeout);
-            return true;
-        } else if (preference == mStatusBarMaxNotif) {
-            int maxNotIcons = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.MAX_NOTIFICATION_ICONS, maxNotIcons);
             return true;
         }
         return false;
