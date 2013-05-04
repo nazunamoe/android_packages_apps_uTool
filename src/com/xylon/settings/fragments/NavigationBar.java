@@ -84,6 +84,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements
 
     private static final String TAG = "NavigationBar";
     private static final String PREF_MENU_UNLOCK = "pref_menu_display";
+    private static final String NAVIGATION_BAR_COLOR = "nav_bar_color";
     private static final String PREF_NAV_COLOR = "nav_button_color";
     private static final String NAVIGATION_BAR_ALLCOLOR = "navigation_bar_allcolor";
     private static final String PREF_NAV_GLOW_COLOR = "nav_button_glow_color";
@@ -110,6 +111,7 @@ public class NavigationBar extends SettingsPreferenceFragment implements
     private int mNavbarHeightProgress;
 
     // What?
+    ColorPickerPreference mNavigationColor;
     ColorPickerPreference mNavigationBarColor;
     CheckBoxPreference mColorizeAllIcons;
     ColorPickerPreference mNavigationBarGlowColor;
@@ -175,6 +177,9 @@ public class NavigationBar extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
         PreferenceScreen prefs = getPreferenceScreen();
+
+        mNavigationColor = (ColorPickerPreference) findPreference(NAVIGATION_BAR_COLOR);
+        mNavigationColor.setOnPreferenceChangeListener(this);
 
         mNavigationBarColor = (ColorPickerPreference) prefSet.findPreference(PREF_NAV_COLOR);
         mNavigationBarColor.setOnPreferenceChangeListener(this);
@@ -356,6 +361,8 @@ public class NavigationBar extends SettingsPreferenceFragment implements
             break;
             case R.id.reset_color:
                 Settings.System.putInt(getActivity().getContentResolver(),
+                        Settings.System.NAVIGATION_BAR_COLOR, -1);
+                Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.NAVIGATION_BAR_TINT, -1);
                 Settings.System.putInt(getActivity().getContentResolver(),
                         Settings.System.NAVIGATION_BAR_GLOW_TINT, -1);
@@ -420,6 +427,15 @@ public class NavigationBar extends SettingsPreferenceFragment implements
         } else if (preference == mNavBarMenuDisplay) {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.MENU_VISIBILITY, Integer.parseInt((String) newValue));
+            return true;
+        } else if (preference == mNavigationColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex) & 0x00FFFFFF;
+            Settings.System.putInt(mContentRes,
+                    Settings.System.NAVIGATION_BAR_COLOR, intHex);
+            refreshSettings();
             return true;
         } else if (preference == mNavigationBarColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
@@ -652,19 +668,30 @@ public class NavigationBar extends SettingsPreferenceFragment implements
             return;
         }
         int navBarColor = Settings.System.getInt(mContentRes,
-                Settings.System.NAVIGATION_BAR_COLOR, -2);
+                Settings.System.NAVIGATION_BAR_COLOR, -1);
         int navButtonColor = Settings.System.getInt(mContentRes,
                 Settings.System.NAVIGATION_BAR_TINT, -1);
         float navButtonAlpha = Settings.System.getFloat(mContentRes,
                 Settings.System.NAVIGATION_BAR_BUTTON_ALPHA, STOCK_ALPHA);
         int glowColor = Settings.System.getInt(mContentRes,
                 Settings.System.NAVIGATION_BAR_GLOW_TINT, 0);
+        float BarAlpha = 1.0f;
+        String alphas[];
+        String settingValue = Settings.System.getString(mContentRes,
+                Settings.System.NAVIGATION_BAR_ALPHA_CONFIG);
+        if (!TextUtils.isEmpty(settingValue)) {
+            alphas = settingValue.split(";");
+            BarAlpha = Float.parseFloat(alphas[0]) / 255;
+        }
+        int a = Math.round(BarAlpha * 255);
         Drawable mBackground = AwesomeConstants.getSystemUIDrawable(mContext, "com.android.systemui:drawable/nav_bar_bg");
         if (mBackground instanceof ColorDrawable) {
             BackgroundAlphaColorDrawable bacd = new BackgroundAlphaColorDrawable(
-                    navBarColor != -2 ? navBarColor : ((ColorDrawable) mBackground).getColor());
+                    navBarColor > 0 ? navBarColor : ((ColorDrawable) mBackground).getColor());
+            bacd.setAlpha(a);
             mNavBarContainer.setBackground(bacd);
         } else {
+            mBackground.setAlpha(a);
             mNavBarContainer.setBackground(mBackground);
         }
         for (int i = 0; i < mNumberofButtons; i++) {

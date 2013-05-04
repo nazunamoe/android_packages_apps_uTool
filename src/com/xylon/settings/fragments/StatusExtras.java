@@ -72,7 +72,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String STATUS_BAR_AUTO_HIDE = "status_bar_auto_hide";
     private static final String HIDDEN_STATUSBAR_PULLDOWN = "hidden_statusbar_pulldown";
     private static final String HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
-    private static final String NAVIGATION_BAR_COLOR = "nav_bar_color";
 //    private static final String STATUS_BAR_COLOR = "stat_bar_color";
     private static final String PREF_NOTIFICATION_WALLPAPER_RESET = "reset_wallpaper";
     private static final String PREF_LIST_EXPANDED_DESKTOP = "expanded_desktop";
@@ -96,7 +95,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     ListPreference mNotificationsBehavior;
     ListPreference mExpandedDesktopListPref;
     ListPreference mHiddenStatusbarPulldownTimeout;
-    ColorPickerPreference mNavigationColor;
 //    ColorPickerPreference mStatusColor;
 
     String mCustomLabelText = null;
@@ -114,9 +112,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
         mCustomLabel = prefSet.findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
-
-        mNavigationColor = (ColorPickerPreference) findPreference(NAVIGATION_BAR_COLOR);
-        mNavigationColor.setOnPreferenceChangeListener(this);
 
 /**        mStatusColor = (ColorPickerPreference) findPreference(STATUS_BAR_COLOR);
         mStatusColor.setOnPreferenceChangeListener(this);
@@ -345,14 +340,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             int index = mNotificationsBehavior.findIndexOfValue(val);
             mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
             Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mNavigationColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex) & 0x00FFFFFF;
-            Settings.System.putInt(mContentRes,
-                    Settings.System.NAVIGATION_BAR_COLOR, intHex);
             return true;
         } else if (preference == mExpandedDesktopListPref) {
             int expandedDesktopValue = Integer.valueOf((String) newValue);
