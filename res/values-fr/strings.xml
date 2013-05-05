@@ -629,6 +629,7 @@
     <string name="ribbon_swipe_left">Ruban par Swipe (gauche)</string>
     <string name="ribbon_swipe_right">Ruban par Swipe (droite)</string>
     <string name="ribbon_swipe_bottom">Ruban par Swipe (bas)</string>
+    <string name="app_window">Fenêtre d\'applications</string>
     <string name="clone_title">Choisir le ruban à cloner</string>
     <string name="icon_size_normal">Normal</string>
     <string name="icon_size_20">Moyen</string>
@@ -646,6 +647,10 @@
     <string name="ribbon_insert">Ajouter un bouton à la suite</string>
     <string name="ribbon_handle_location_title">Emplacement de la poignée</string>
     <string name="ribbon_icon_location_title">Gravité des icônes</string>
+    <string name="window_text_color_title">Couleur du texte de la fenêtre</string>
+    <string name="window_color_title">Couleur de la fenêtre</string>
+    <string name="window_opacity_title">Opacité de la fenêtre</string>
+    <string name="window_columns_title">Colonnes de la fenêtre</string>
     <string name="center">Centrer</string>
     <string name="top">En haut</string>
     <string name="bottom">En bas</string>
