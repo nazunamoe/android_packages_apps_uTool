@@ -106,6 +106,7 @@
     <!-- Power Menu -->
     <string name="title_show_screenshot">显示屏幕截图</string>
     <string name="title_show_airplane_toggle">显示飞行模式</string>
+    <string name="title_show_torch_toggle">手电筒</string>
     <string name="power_menu_expanded_desktop">显示全屏开关</string>
     <string name="expanded_desktop_cat">高级设置</string>
     <string name="expanded_desktop_summary_status_bar">状态栏可见</string>
@@ -970,6 +971,13 @@
     <string name="widget_alert_remove_widget">删除小部件</string>
     <string name="widget_remove_widget">从列表删除 %s 部件？</string>
     <string name="widget_add_title">选择一个应用程序</string>
+    <string name="expanded_title">每个应用程序扩展</string>
+    <string name="expanded_summary">桌面自定义每个应用程序</string>
+    <string name="add_expand">添加应用程序</string>
+    <string name="expand_list">应用程序列表</string>
+    <string name="expand_add_title">选择应用程序</string>
+    <string name="expand_alert_remove_application">删除应用程序</string>
+    <string name="expand_remove_application">删除%s自动扩大？</string>
 
     <string name="navbar_height_title">导航栏高度</string>
 
