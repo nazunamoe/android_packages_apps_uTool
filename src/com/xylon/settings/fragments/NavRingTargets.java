@@ -40,7 +40,6 @@ import android.preference.PreferenceFragment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.ExtendedPropertiesUtils;
 import android.util.Log;
 import android.view.*;
 import android.widget.*;
