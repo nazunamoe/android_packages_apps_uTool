@@ -37,7 +37,7 @@ import android.telephony.TelephonyManager;
 import android.widget.Button;
 
 /**
- * Base class for Settings fragments, with some helper functions and dialog management.
+ * Base class for Settings fragments, with some helper functions and dialog management
  */
 public class SettingsPreferenceFragment extends PreferenceFragment implements DialogCreatable {
 
