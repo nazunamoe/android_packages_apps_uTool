@@ -17,6 +17,11 @@
 <resources>
 
     <style name="Theme.CreateShortCut" parent="android:Theme.Holo.DialogWhenLarge" />
-    <style name="Settings" parent="android:Theme.Holo.Light.DarkActionBar" />
+    <style name="Settings" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+    </style>
+    <style name="ActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_background</item>
+    </style>
     
 </resources>
