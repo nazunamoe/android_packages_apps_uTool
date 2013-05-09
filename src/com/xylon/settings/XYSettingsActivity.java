@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -88,6 +89,8 @@ public class XYSettingsActivity extends PreferenceActivity implements ButtonBarH
                 finish(); // close current activity
             }
         }
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         
     }
