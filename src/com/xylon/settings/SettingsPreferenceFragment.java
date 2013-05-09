@@ -24,6 +24,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -63,6 +64,8 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         mContext = getActivity();
         mContentRes = getActivity().getContentResolver();
         mActionBar = getActivity().getActionBar();
+        Drawable d = getResources().getDrawable(R.drawable.background_image_name);  
+        getActionBar().setBackgroundDrawable(d);
         if(getArguments() != null) {
             mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
         }
