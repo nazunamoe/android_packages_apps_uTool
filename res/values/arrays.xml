@@ -1128,19 +1128,15 @@
         <item>1</item>
         <item>2</item>
     </string-array>
-
-    <!-- Hidden Statusbar Pulldown -->
-    <string-array name="hidden_statusbar_pulldown_timeout_entries" translatable="false">
-        <item>@string/time_2_5_seconds</item>
-        <item>@string/time_5_seconds</item>
-        <item>@string/time_7_5_seconds</item>
-        <item>@string/time_10_seconds</item>
+    <string-array name="ribbon_dismiss_entries" translatable="false">
+        <item>@string/never</item>
+        <item>@string/always</item>
+        <item>@string/not_bar</item>
     </string-array>
-    <string-array name="hidden_statusbar_pulldown_timeout_values" translatable="false">
-        <item>2500</item>
-        <item>5000</item>
-        <item>7500</item>
-        <item>10000</item>
+    <string-array name="ribbon_dismiss_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </string-array>
 
     <!-- Window columns quantity -->
@@ -1155,6 +1151,20 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+    </string-array>
+
+    <!-- Hidden Statusbar Pulldown -->
+    <string-array name="hidden_statusbar_pulldown_timeout_entries" translatable="false">
+        <item>@string/time_2_5_seconds</item>
+        <item>@string/time_5_seconds</item>
+        <item>@string/time_7_5_seconds</item>
+        <item>@string/time_10_seconds</item>
+    </string-array>
+    <string-array name="hidden_statusbar_pulldown_timeout_values" translatable="false">
+        <item>2500</item>
+        <item>5000</item>
+        <item>7500</item>
+        <item>10000</item>
     </string-array>
 
     <!-- Hidden Statusbar -->
