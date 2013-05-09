@@ -36,8 +36,6 @@ import android.util.Log;
 import android.telephony.TelephonyManager;
 import android.widget.Button;
 
-import com.xylon.settings.R;
-
 /**
  * Base class for Settings fragments, with some helper functions and dialog management
  */
