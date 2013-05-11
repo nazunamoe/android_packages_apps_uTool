@@ -66,7 +66,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         mContext = getActivity();
         mContentRes = getActivity().getContentResolver();
         mActionBar = getActivity().getActionBar();
-        Drawable d = getResources().getDrawable(R.drawable.background_image_name);  
+        Drawable d = getResources().getDrawable(R.drawable.ab_background);  
         getActionBar().setBackgroundDrawable(d);
         if(getArguments() != null) {
             mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
