@@ -61,6 +61,8 @@
     <string name="clipboard_notification">Copié dans le Presse-Papiers.</string>
 
     <!-- Menu Strings -->
+    <string name="menu_ribbon_toggles">Configurer les toggles</string>
+    <string name="menu_ribbon_toggles_error">Les toggles sont seulement disponibles pour le ruban par swipe de gauche et droite.</string>
     <string name="menu_nav_bar_reset">Réini. la barre de nav.</string>
     <string name="menu_user_interface_reset">Réini. de l\'arrière-plan des notifications</string>
     <string name="menu_lockscreens_reset">Réini. l\'arrière-plan de l\'écran de verrouillage</string>
@@ -722,15 +724,15 @@
 
     <!-- Lock Screen Shortcuts -->
     <string name="lockscreen_target_info">Glisser pour assigner les raccourcis</string>
-    <string name="lockscreen_target_title">Raccourcis du slider</string>
-    <string name="lockscreen_target_summary">Configurer les raccourcis de l\'anneau sur l\'écran de verrouillage</string>
+    <string name="lockscreen_target_title">Raccourcis de l\'anneau</string>
+    <string name="lockscreen_target_summary">Configurer les raccourcis de l\'anneau de l\'écran de verrouillage</string>
     <string name="lockscreen_target_reset">Les raccourcis ont été réinitialisés</string>
-    <string name="lockscreen_target_save">Raccourcis enregistrés</string>
+    <string name="lockscreen_target_save">Les raccourcis ont été enregistrés</string>
     <string name="lockscreen_target_reset_title">Réinitialiser</string>
-    <string name="lockscreen_target_reset_message">Réinitialiser tous les raccourcis et revenir à la configuration d\'origine\u00A0?</string>
+    <string name="lockscreen_target_reset_message">Supprimer tous les raccourcis et revenir à la configuration d\'origine\u00A0?</string>
     <string name="lockscreen_target_empty">Vide</string>
     <string name="lockscreen_target_edit_title">Modifier le raccourci</string>
-    <string name="lockscreen_target_edit_msg">Sélectionner l\'application, l\'activité et l\'icône du raccourci</string>
+    <string name="lockscreen_target_edit_msg">Sélectionner l\'application (ou l\'activité) et l\'icône associé</string>
 
     <!-- AOKP Lockscreen Customizations -->
     <string name="lockscreen_maximize_widgets_title">Maximiser les widgets</string>
@@ -767,20 +769,20 @@
     <string name="screen_security_summary">Afficher ou modifier les paramètres de sécurité</string>
     
     <string name="additional_options_title">Déverrouillage</string>
-    <string name="unlock_menu_unlock_title">Déverrouillage par Menu</string>
-    <string name="unlock_menu_unlock_summary">Appuyer sur le bouton de Menu déverrouille l\'appareil</string>
-    <string name="unlock_home_unlock_title">Déverrouillage par Accueil</string>
-    <string name="unlock_home_unlock_summary">Appuyer sur le bouton Accueil déverrouille l\'appareil</string>
+    <string name="unlock_menu_unlock_title">Déverrouiller par Menu</string>
+    <string name="unlock_menu_unlock_summary">Déverrouillage de l\'écran en appuyant sur le bouton Menu</string>
+    <string name="unlock_home_unlock_title">Déverrouillage par bouton Home</string>
+    <string name="unlock_home_unlock_summary">Déverrouillage de l\'écran en appuyant sur le bouton Home</string>
     <string name="unlock_quick_unlock_control_title">Déverrouillage rapide</string>
-    <string name="unlock_quick_unlock_control_summary">Déverrouiller automatiquement lorsque le code PIN / mot de passe correct est entré.</string>
+    <string name="unlock_quick_unlock_control_summary">Évite d\'appuyer sur OK lors de la saisie du code PIN ou du mot de passe.\nAttention : effacer compte comme un essai raté\u00A0!</string>
     <string name="lockscreen_longpress_challenge_title">Déverrouiller par Appui Long</string>
-    <string name="lockscreen_longpress_challenge_summary">Cela permet à votre appareil d\'être déverrouillé avec les widgets maximisés par un appui long sur l\'icône de verrouillage.</string>
-    
+    <string name="lockscreen_longpress_challenge_summary">Déverrouillage de l\'écran en appuyant sur l\'icône de verrouillage, avec les widgets maximisés.</string>
+
     <string name="delay_and_timeout_title">Délai de verrouillage</string>
-    <string name="slide_lock_delay_title">Délai du verrouillage de l\'écran</string>
-    <string name="slide_lock_timeout_delay_title">Délai après temps écoulé</string>
-    <string name="slide_lock_screenoff_delay_title">Délai après avoir été éteint</string>
-    <string name="slide_lock_delay_none">Désactivé</string>
+    <string name="slide_lock_delay_title">Modifier les délais</string>
+    <string name="slide_lock_timeout_delay_title">Extinction de l\'écran</string>
+    <string name="slide_lock_screenoff_delay_title">Extinction manuelle</string>
+    <string name="slide_lock_delay_none">Immédiatement</string>
     <string name="slide_lock_delay_1s">1 seconde</string>
     <string name="slide_lock_delay_5s">5 secondes</string>
     <string name="slide_lock_delay_10s">10 secondes</string>
@@ -795,7 +797,7 @@
     <string name="lockscreen_vibrate_enabled_head">Vibrer lors du déverrouillage</string>
 
     <!--- Lock clock -->
-    <string name="lock_clock_title">Widget cLock</string>
+    <string name="lock_clock_title">Widget horloge</string>
     <string name="lock_clock_summary">Afficher ou modifier la façon dont le widget \'cLock\' est affiché sur l\'écran d\'accueil ou de verrouillage</string>
 
     <!-- Hybrid -->
@@ -835,7 +837,7 @@
     <string name="dpi_group_app_list">Liste des applications</string>
     <string name="dpi_group_alert_add_app_title">Choisir une application</string>
     <string name="dpi_groups_alert_remove_app">Supprimer une application</string>
-    <string name="dpi_groups_remove_app">Retirer l\'applications %s du groupe ?</string>
+    <string name="dpi_groups_remove_app">Retirer %s du groupe ?</string>
     <string name="dpi_groups_backuprestore_title">Sauvegarde et restauration</string>
     <string name="dpi_groups_auto_backup">Sauvegarde automatique</string>
     <string name="dpi_groups_auto_backup_summary">Sauvegarde auto. des modifications effectuées</string>
@@ -870,7 +872,7 @@
     <string name="expand_list">Liste des applications</string>
     <string name="expand_add_title">Choisir une application</string>
     <string name="expand_alert_remove_application">Supprimer</string>
-    <string name="expand_remove_application">Supprimer l\'application %s du Mode Étendu auto ?</string>
+    <string name="expand_remove_application">Supprimer %s du Mode Étendu automatique ?</string>
     <string name="navbar_height_title">Hauteur de la barre de navigation</string>
 
     <string name="alert_reboot">Redémarrage requis</string>
