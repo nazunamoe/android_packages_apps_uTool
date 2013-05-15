@@ -29,4 +29,8 @@
         android:key="show_reboot_keyguard"
         android:title="@string/title_show_reboot_keyguard" />
 
+    <SwitchPreference
+        android:key="show_power_keyguard"
+        android:title="@string/title_show_power_keyguard" />
+
 </PreferenceScreen>

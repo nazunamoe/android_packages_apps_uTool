@@ -24,6 +24,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_NAVBAR_HIDE = "show_navbar_hide";
     private static final String PREF_VOLUME_STATE_TOGGLE = "show_volume_state_toggle";
     private static final String PREF_REBOOT_KEYGUARD = "show_reboot_keyguard";
+    private static final String PREF_POWER_KEYGUARD = "show_power_keyguard";
 
     SwitchPreference mExpandedDesktopPref;
     SwitchPreference mShowScreenShot;
@@ -31,6 +32,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
     SwitchPreference mShowAirplaneToggle;
     SwitchPreference mShowNavBarHide;
     SwitchPreference mShowVolumeStateToggle;
+    SwitchPreference mShowPowerKeyguard;
     SwitchPreference mShowRebootKeyguard;
 
     @Override
@@ -82,6 +84,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
                 .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_REBOOT_KEYGUARD, true));
         mShowRebootKeyguard.setOnPreferenceChangeListener(this);
 
+        mShowPowerKeyguard = (SwitchPreference) findPreference(PREF_POWER_KEYGUARD);
+        mShowPowerKeyguard.setChecked(Settings.System.getBoolean(getActivity()
+                .getContentResolver(), Settings.System.POWER_DIALOG_SHOW_POWER_KEYGUARD, true));
+        mShowPowerKeyguard.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object value) {
@@ -120,6 +127,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
         } else if (preference == mShowRebootKeyguard) {
             Settings.System.putBoolean(getActivity().getContentResolver(),
                     Settings.System.POWER_DIALOG_SHOW_REBOOT_KEYGUARD,
+                    (Boolean) value);
+            return true;
+        } else if (preference == mShowPowerKeyguard) {
+            Settings.System.putBoolean(getActivity().getContentResolver(),
+                    Settings.System.POWER_DIALOG_SHOW_POWER_KEYGUARD,
                     (Boolean) value);
             return true;
         }
