@@ -55,12 +55,12 @@
             android:summary="@string/lockscreen_target_summary" />
 
         <PreferenceScreen
-            android:key="lock_clock"
-            android:title="@string/lock_clock_title"
-            android:summary="@string/lock_clock_summary">
+            android:key="dash_clock"
+            android:title="@string/dash_clock_title"
+            android:summary="@string/dash_clock_summary">
             <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.cyanogenmod.lockclock"
-                    android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+                    android:targetPackage="net.nurik.roman.dashclock"
+                    android:targetClass="com.google.android.apps.dashclock.configuration.ConfigurationActivity" />
         </PreferenceScreen>
 
     </PreferenceCategory>

@@ -65,7 +65,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements Preference
     private static final String PREF_LOCKSCREEN_LONGPRESS_CHALLENGE = "lockscreen_longpress_challenge";
     private static final String PREF_LOCKSCREEN_USE_CAROUSEL = "lockscreen_use_widget_container_carousel";
     private static final String PREF_ALWAYS_BATTERY_PREF = "lockscreen_battery_status";
-    private static final String PREF_LOCK_CLOCK = "lock_clock";
+    private static final String PREF_DASH_CLOCK = "dash_clock";
     private static final String PREF_SEE_TRHOUGH = "see_through";
     private static final String BACKGROUND_PREF = "lockscreen_background";
     private static final String PREF_LS_COLOR_ALPHA = "lock_color_alpha";
@@ -117,7 +117,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements Preference
         PreferenceScreen prefSet = getPreferenceScreen();
 
         // Dont display the lock clock preference if its not installed
-        removePreferenceIfPackageNotInstalled(findPreference(PREF_LOCK_CLOCK));
+        removePreferenceIfPackageNotInstalled(findPreference(PREF_DASH_CLOCK));
 
         mLockscreenAutoRotate = (CheckBoxPreference)findPreference(PREF_LOCKSCREEN_AUTO_ROTATE);
         mLockscreenAutoRotate.setChecked(Settings.System.getBoolean(mContext

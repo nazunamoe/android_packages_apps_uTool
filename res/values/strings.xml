@@ -943,9 +943,9 @@
     <string name="lockscreen_vibrate_enabled_head">Vibrate when unlocking</string>
 
 
-    <!--- Lock clock -->
-    <string name="lock_clock_title">Clock widget</string>
-    <string name="lock_clock_summary">View or change how the \'cLock\' Home and Lock screen widgets will display</string>
+    <!--- Dash clock -->
+    <string name="dash_clock_title">Clock widget</string>
+    <string name="dash_clock_summary">View or change how the DashClock Extensions, Home and Lock screen widgets will display</string>
 
     <!-- Hybrid -->
     <string name="hybrid_settings_title">Hybrid settings</string>
