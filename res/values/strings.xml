@@ -596,14 +596,19 @@
     <string name="navbar_icon_menu">Custom icon</string>
     <string name="navbar_delete_menu">Delete button</string>
 
+    <string name="statusbar_behaviour">Statusbar Behaviour</string>
+    <string name="statusbar_visible">Show Statusbar</string>
+
+    <!-- Hide Status Bar -->
+    <string name="statusbar_hide_title">Hide Statusbar</string>
+
     <!-- Auto-Hide Status Bar -->
-    <string name="auto_hide_statusbar">Auto Hide statusbar</string>
-    <string name="auto_hide_statusbar_summary">Statusbar hides itself when there are no notifications</string>
 
     <!-- Hidden Statusbar Pulldown -->
-    <string name="hidden_statusbar_pulldown_title">Hidden Statusbar Pulldown</string>
-    <string name="hidden_statusbar_pulldown_summary">Allows Statusbar to be pulled down when hidden in fullscreen apps</string>
-    <string name="hidden_statusbar_pulldown_timeout_title">Hidden Statusbar Pulldown Timeout</string>
+    <string name="statusbar_hide_summary">Choose from 3 different statusbar behaviour</string>
+    <string name="statusbar_notification">Notifications</string>
+    <string name="statusbar_pulldown">Pulldown Statusbar</string>
+    <string name="statusbar_pulldown_notification">Pulldown &amp; Notifications</string>    <string name="hidden_statusbar_pulldown_timeout_title">Hidden Statusbar Pulldown Timeout</string>
     <string name="hidden_statusbar_pulldown_timeout_summary">Timeout for hidden Statusbar window</string>
 
     <!-- Nav Bar Widgets -->

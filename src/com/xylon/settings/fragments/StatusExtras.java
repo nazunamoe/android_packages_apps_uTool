@@ -69,9 +69,8 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_NOTIFICATION_WALLPAPER_ALPHA = "notification_wallpaper_alpha";
     private static final String PREF_NOTIFICATION_SHOW_WIFI_SSID = "notification_show_wifi_ssid";
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
-    private static final String STATUS_BAR_AUTO_HIDE = "status_bar_auto_hide";
-    private static final String HIDDEN_STATUSBAR_PULLDOWN = "hidden_statusbar_pulldown";
-    private static final String HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
+    private static final String PREF_HIDE_STATUSBAR = "hide_statusbar";
+    private static final String PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
 //    private static final String STATUS_BAR_COLOR = "stat_bar_color";
     private static final String PREF_NOTIFICATION_WALLPAPER_RESET = "reset_wallpaper";
     private static final String PREF_LIST_EXPANDED_DESKTOP = "expanded_desktop";
@@ -89,17 +88,18 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     Preference mResetWallpaper;
     CheckBoxPreference mStatusBarNotifCount;
     CheckBoxPreference mStatusbarSliderPreference;
-    CheckBoxPreference mStatusBarAutoHide;
-    CheckBoxPreference mHiddenStatusbarPulldown;
     CheckBoxPreference mShowWifiName;
     ListPreference mNotificationsBehavior;
     ListPreference mExpandedDesktopListPref;
-    ListPreference mHiddenStatusbarPulldownTimeout;
+    ListPreference mHideStatusBar;
+    ListPreference mHiddenStatusbarPulldownTimeout;;
 //    ColorPickerPreference mStatusColor;
 
     String mCustomLabelText = null;
 
     private int seekbarProgress;
+
+    private static int mBarBehaviour;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,18 +128,18 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mResetWallpaper = (Preference) findPreference(PREF_NOTIFICATION_WALLPAPER_RESET);
         mWallpaperAlpha = (Preference) findPreference(PREF_NOTIFICATION_WALLPAPER_ALPHA);
 
-        mStatusBarAutoHide = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_AUTO_HIDE);
-        mStatusBarAutoHide.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.AUTO_HIDE_STATUSBAR, 0) == 1));
+        mHideStatusBar = (ListPreference) findPreference(PREF_HIDE_STATUSBAR);
+        int mBarBehaviour = Settings.System.getInt(cr,
+                Settings.System.HIDE_STATUSBAR, 0);
+        mHideStatusBar.setValue(Integer.toString(Settings.System.getInt(cr,
+                Settings.System.HIDE_STATUSBAR, mBarBehaviour)));
+        mHideStatusBar.setOnPreferenceChangeListener(this);
 
-        mHiddenStatusbarPulldown = (CheckBoxPreference) prefSet.findPreference(HIDDEN_STATUSBAR_PULLDOWN);
-        mHiddenStatusbarPulldown.setChecked((Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.HIDDEN_STATUSBAR_PULLDOWN, 0) == 1));
-
-        mHiddenStatusbarPulldownTimeout = (ListPreference) findPreference(HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT);
+        mHiddenStatusbarPulldownTimeout = (ListPreference) findPreference(PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT);
         mHiddenStatusbarPulldownTimeout.setOnPreferenceChangeListener(this);
         mHiddenStatusbarPulldownTimeout.setValue(Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, 10000) + "");
+                Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, 5000) + "");
+        mHiddenStatusbarPulldownTimeout.setEnabled(mBarBehaviour == 3 || mBarBehaviour == 4);
 
         mStatusBarNotifCount = (CheckBoxPreference) prefSet.findPreference(PREF_STATUS_BAR_NOTIF_COUNT);
         mStatusBarNotifCount.setChecked(Settings.System.getBoolean(getActivity().getContentResolver(), 
@@ -167,6 +167,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mShowWifiName = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_SHOW_WIFI_SSID);
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
+
+        if (isTablet(mContext)) {
+            mStatusbarSliderPreference.setEnabled(false);
+            mHideStatusBar.setEnabled(false);
+        } else {
+        }
     }
 
     private void updateCustomLabelTextSummary() {
@@ -302,17 +308,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             .create()
             .show();
             return true;
-        } else if (preference == mStatusBarAutoHide) {
-            value = mStatusBarAutoHide.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.AUTO_HIDE_STATUSBAR, value ? 1 : 0);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mHiddenStatusbarPulldown) {
-            value = mHiddenStatusbarPulldown.isChecked();
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.HIDDEN_STATUSBAR_PULLDOWN, value ? 1 : 0);
-            return true;
         } else if (preference == mShowWifiName) {
             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NOTIFICATION_SHOW_WIFI_SSID,
                     mShowWifiName.isChecked() ? 1 : 0);
@@ -341,14 +336,24 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             mNotificationsBehavior.setSummary(mNotificationsBehavior.getEntries()[index]);
             Helpers.restartSystemUI();
             return true;
+
         } else if (preference == mExpandedDesktopListPref) {
             int expandedDesktopValue = Integer.valueOf((String) newValue);
             updateExpandedDesktop(expandedDesktopValue);
+            return true;
+        } else if (preference == mHideStatusBar) {
+            int mBarBehaviour = Integer.valueOf((String) newValue);
+            int index = mHideStatusBar.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HIDE_STATUSBAR, mBarBehaviour);
+            mHideStatusBar.setSummary(mHideStatusBar.getEntries()[index]);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mHiddenStatusbarPulldownTimeout) {
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, val);
+            Helpers.restartSystemUI();
             return true;
 /**        } else if (preference == mStatusColor) {
             String hex = ColorPickerPreference.convertToARGB(
