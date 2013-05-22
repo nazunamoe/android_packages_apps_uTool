@@ -35,6 +35,7 @@
     <string name="weather">Weather</string>
     <string name="tools">Tools</string>
     <string name="bar_cat">Bar</string>
+    <string name="icon_cat">Status Icon</string>
     <string name="notif_cat">Notification</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
@@ -602,8 +603,6 @@
     <!-- Hide Status Bar -->
     <string name="statusbar_hide_title">Hide Statusbar</string>
 
-    <!-- Auto-Hide Status Bar -->
-
     <!-- Hidden Statusbar Pulldown -->
     <string name="statusbar_hide_summary">Choose from 3 different statusbar behaviour</string>
     <string name="statusbar_notification">Notifications</string>
@@ -656,6 +655,8 @@
     <string name="transparency_dialog_transparency_keyguard">Lockscreen alpha</string>
     <string name="navigation_bar_color_title">Navigation Bar color</string>
     <string name="status_bar_color_title">Status Bar color</string>
+    <string name="status_icon_color_title">Status color</string>
+    <string name="status_enable_color_title">Status color style</string>
 
     <!-- General UI | Other Modifications unknown -->
 

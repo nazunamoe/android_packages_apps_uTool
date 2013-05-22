@@ -34,8 +34,6 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
 
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "clock_am_pm_style";
-    private static final String PREF_COLOR_PICKER = "clock_color";
-    private static final String PREF_CLOCK_COLOR_STYLE = "clock_color_style";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
     private static final String PREF_CLOCK_DATE_STYLE = "clock_date_style";
     private static final String PREF_CLOCK_DATE_FORMAT = "clock_date_format";
@@ -57,8 +55,6 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
 
     ListPreference mClockStyle;
     ListPreference mClockAmPmstyle;
-    ColorPickerPreference mColorPicker;
-    ListPreference mClockColorStyle;
     ListPreference mClockDateDisplay;
     ListPreference mClockDateStyle;
     ListPreference mClockDateFormat;
@@ -88,12 +84,6 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
         mClockAmPmstyle.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE,
                 2)));
-
-        mColorPicker = (ColorPickerPreference) findPreference(PREF_COLOR_PICKER);
-        mColorPicker.setOnPreferenceChangeListener(this);
-
-        mClockColorStyle = (ListPreference) findPreference(PREF_CLOCK_COLOR_STYLE);
-        mClockColorStyle.setOnPreferenceChangeListener(this);
 
         mClockDateDisplay = (ListPreference) findPreference(PREF_CLOCK_DATE_DISPLAY);
         mClockDateDisplay.setOnPreferenceChangeListener(this);
@@ -134,18 +124,7 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
             mClockDateFormat.setEnabled(false);
         }
 
-        updateVisibility();
         parseClockDateFormats();
-    }
-
-    private void updateVisibility() {
-        int visible = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.CLOCK_COLOR_STYLE, 1);
-        if (visible == 1) {
-            mColorPicker.setEnabled(false);
-        } else {
-            mColorPicker.setEnabled(true);
-        }
     }
 
     @Override
@@ -162,25 +141,6 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_STYLE, val);
-        } else if (preference == mClockColorStyle) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mClockColorStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.CLOCK_COLOR_STYLE, value);
-            preference.setSummary(mClockColorStyle.getEntries()[index]);
-            updateVisibility();
-            if (value == 1)
-                Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mColorPicker) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String
-                    .valueOf(newValue)));
-            preference.setSummary(hex);
-
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
-            Log.e("KANGED", intHex + "");
         } else if (preference == mClockDateDisplay) {
             int val = Integer.parseInt((String) newValue);
             int index = mClockDateDisplay.findIndexOfValue((String) newValue);

@@ -71,7 +71,8 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
     private static final String PREF_HIDE_STATUSBAR = "hide_statusbar";
     private static final String PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
-//    private static final String STATUS_BAR_COLOR = "stat_bar_color";
+    private static final String ICON_COLOR_STYLE = "icon_color_style";
+    private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String PREF_NOTIFICATION_WALLPAPER_RESET = "reset_wallpaper";
     private static final String PREF_LIST_EXPANDED_DESKTOP = "expanded_desktop";
 
@@ -92,8 +93,9 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     ListPreference mNotificationsBehavior;
     ListPreference mExpandedDesktopListPref;
     ListPreference mHideStatusBar;
+    ListPreference mStatusColorStyle;
     ListPreference mHiddenStatusbarPulldownTimeout;;
-//    ColorPickerPreference mStatusColor;
+    ColorPickerPreference mStatusColor;
 
     String mCustomLabelText = null;
 
@@ -113,17 +115,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mCustomLabel = prefSet.findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
 
-/**        mStatusColor = (ColorPickerPreference) findPreference(STATUS_BAR_COLOR);
+        mStatusColorStyle = (ListPreference) findPreference(ICON_COLOR_STYLE);
+        mStatusColorStyle.setOnPreferenceChangeListener(this);
+
+        mStatusColor = (ColorPickerPreference) findPreference(STATUS_ICON_COLOR);
         mStatusColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_COLOR, -2);
-        if (intColor == -2) {
-            intColor = getResources().getColor(
-                    com.android.internal.R.color.black);
-        }
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-        mStatusColor.setNewPreviewColor(intColor);
-**/
+
         mNotificationWallpaper = findPreference(PREF_NOTIFICATION_WALLPAPER);
         mResetWallpaper = (Preference) findPreference(PREF_NOTIFICATION_WALLPAPER_RESET);
         mWallpaperAlpha = (Preference) findPreference(PREF_NOTIFICATION_WALLPAPER_ALPHA);
@@ -355,16 +352,23 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
                     Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, val);
             Helpers.restartSystemUI();
             return true;
-/**        } else if (preference == mStatusColor) {
+        } else if (preference == mStatusColorStyle) {
+            int val = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ICON_COLOR_STYLE, val);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mStatusColor) {
             String hex = ColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_COLOR, intHex);
+                    Settings.System.STATUS_ICON_COLOR, intHex);
+            Helpers.restartSystemUI();
             return true;
-**/
         }
+
         return false;
     }
 
