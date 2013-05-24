@@ -80,7 +80,6 @@
     <string name="menu_ribbon_toggles_error">Toggles are only available for the left and right swipe ribbons.</string>
     <string name="menu_user_interface_reset">Reset notification wallpaper</string>
     <string name="menu_lockscreens_reset">Reset lockscreen wallpaper</string>
-    <string name="menu_ribbon_reset">Reset ribbon</string>
 
     <!-- General Strings -->
     <string name="advanced_settings">Advanced settings</string>
