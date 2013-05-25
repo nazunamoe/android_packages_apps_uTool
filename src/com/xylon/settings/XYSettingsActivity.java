@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.preference.Preference;
-import android.preference.PreferenceActivity;
+import android.preference.PreferenceDrawerActivity;
 import android.preference.PreferenceFragment;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -36,7 +36,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 
-public class XYSettingsActivity extends PreferenceActivity implements ButtonBarHandler {
+public class XYSettingsActivity extends PreferenceDrawerActivity implements ButtonBarHandler {
 
     private static final String TAG = "XY_Settings";
 
@@ -294,7 +294,7 @@ public class XYSettingsActivity extends PreferenceActivity implements ButtonBarH
             }
         }
 
-        // Ignore the adapter provided by PreferenceActivity and substitute ours
+        // Ignore the adapter provided by PreferenceDrawerActivity and substitute ours
         // instead
         super.setListAdapter(new HeaderAdapter(this, mHeaders));
     }
