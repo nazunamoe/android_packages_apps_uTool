@@ -915,8 +915,8 @@
 
 
     <!--- Lock clock -->
-    <string name="lock_clock_title">시계 위젯</string>
-    <string name="lock_clock_summary">DashClock 위젯이 홈 화면과 잠금화면에 어떻게 표시될 지 설정합니다.</string>
+    <string name="dash_clock_title">시계 위젯</string>
+    <string name="dash_clock_summary">DashClock 위젯이 홈 화면과 잠금화면에 어떻게 표시될 지 설정합니다.</string>
 
 
     <!-- LED brightness entries -->
