@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -41,7 +43,7 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
 
     private static boolean hasNotificationLed;
     private static boolean hasSPen;
-    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
+//    private static String KEY_USE_ENGLISH_LOCALE = "use_english_locale";
 
     protected HashMap<Integer, Integer> mHeaderIndexMap = new HashMap<Integer, Integer>();
     private List<Header> mHeaders;
@@ -52,19 +54,17 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
     private Header mCurrentHeader;
     boolean mInLocalHeaderSwitch;
 
-    Locale defaultLocale;
+//    Locale defaultLocale;
 
     protected boolean isShortcut;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
-        
         hasNotificationLed = getResources().getBoolean(R.bool.has_notification_led);
         hasSPen = getResources().getBoolean(R.bool.config_stylusGestures);
-        defaultLocale = Locale.getDefault();
-        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
-        setLocale();
+//        defaultLocale = Locale.getDefault();
+//        Log.i(TAG, "defualt locale: " + defaultLocale.getDisplayName());
+//        setLocale();
 
         mInLocalHeaderSwitch = true;
         super.onCreate(savedInstanceState);
@@ -79,15 +79,47 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
         }
 
         if ("com.xylon.settings.START_NEW_FRAGMENT".equals(getIntent().getAction())) {
-            String className = getIntent().getStringExtra("xylon_fragment_name").toString();
-            if (!className.equals("com.xylon.settings.XYSettingsActivity")) {
+            String className = getIntent().getStringExtra("xy_fragment_name").toString();
+            Class<?> cls = null;
+            try {
+                cls = Class.forName(className);
+            } catch (ClassNotFoundException e1) {
+                // can't find the class at all, die
+                return;
+            }
+
+            try {
+                cls.asSubclass(XYSettingsActivity.class);
+                return;
+            } catch (ClassCastException e) {
+                // fall through
+            }
+
+            try {
+                cls.asSubclass(Fragment.class);
                 Bundle b = new Bundle();
                 b.putBoolean("started_from_shortcut", true);
                 isShortcut = true;
                 startWithFragment(className, b, null, 0);
                 finish(); // close current activity
+                return;
+            } catch (ClassCastException e) {
+            }
+
+            try {
+                cls.asSubclass(Activity.class);
+                isShortcut = true;
+                Intent activity = new Intent(getApplicationContext(), cls);
+                activity.putExtra("started_from_shortcut", true);
+                startActivity(activity);
+                finish(); // close current activity
+                return;
+            } catch (ClassCastException e) {
             }
         }
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
 
     }
 
@@ -100,7 +132,7 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
         }
     }
 
-    @Override
+/**    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity, menu);
@@ -128,8 +160,8 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
                 recreate();
                 return true;
             case android.R.id.home:
- 	        onBackPressed();
- 	        return true;
+                // think of an idea to make the navigation drawer toggle button works.
+                return true;
             default:
                 return super.onContextItemSelected(item);
         }
@@ -157,7 +189,7 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
                     getBaseContext().getResources().getDisplayMetrics());
 
         }
-    }
+    }**/
 
     /**
      * Populate the activity with the top-level headers.
@@ -249,7 +281,7 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
     public void onResume() {
         super.onResume();
 
-        setLocale();
+//        setLocale();
 
         ListAdapter listAdapter = getListAdapter();
         if (listAdapter instanceof HeaderAdapter) {
@@ -290,7 +322,7 @@ public class XYSettingsActivity extends PreferenceDrawerActivity implements Butt
             }
         }
 
-        // Ignore the adapter provided by PreferenceDrawerActivity and substitute ours
+        // Ignore the adapter provided by PreferenceActivity and substitute ours
         // instead
         super.setListAdapter(new HeaderAdapter(this, mHeaders));
     }

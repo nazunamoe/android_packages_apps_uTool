@@ -16,7 +16,6 @@
 
 package com.xylon.settings;
 
-import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
@@ -49,8 +48,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
     protected Context mContext;
 
     private SettingsDialogFragment mDialogFragment;
-    protected ActionBar mActionBar;
-    protected boolean mShortcutFragment;
     protected boolean hasTorch;
     protected boolean hasHardwareButtons;
     protected boolean hasFastCharge;
@@ -67,12 +64,6 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
         hasColorTuning = getResources().getBoolean(R.bool.has_color_tuning);
         mContext = getActivity();
         mContentRes = getActivity().getContentResolver();
-        mActionBar = getActivity().getActionBar();
-        if(getArguments() != null) {
-            mShortcutFragment = getArguments().getBoolean("started_from_shortcut", false);
-        }
-        if(!mShortcutFragment)
-            mActionBar.setDisplayHomeAsUpEnabled(true);
 
         Vibrator mVibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (mVibrator != null && mVibrator.hasVibrator()) {
