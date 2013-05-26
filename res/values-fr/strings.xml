@@ -811,8 +811,8 @@
     <string name="lockscreen_vibrate_enabled_head">Vibrer lors du déverrouillage</string>
 
     <!--- Lock clock -->
-    <string name="lock_clock_title">Widget horloge</string>
-    <string name="lock_clock_summary">Afficher ou modifier la façon dont le widget DashClock est affiché sur l\'écran d\'accueil ou de verrouillage</string>
+    <string name="dash_clock_title">Widget horloge</string>
+    <string name="dash_clock_summary">Afficher ou modifier la façon dont le widget DashClock est affiché sur l\'écran d\'accueil ou de verrouillage</string>
 
     <!-- Hybrid -->
     <string name="hybrid_settings_title">Paramètres Hybride</string>
