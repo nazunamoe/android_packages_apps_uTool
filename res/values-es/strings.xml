@@ -730,8 +730,8 @@
     <string name="lockscreen_use_widget_container_carousel_summary">Utilizar animación de carrusel al cambiar entre los widgets de la pantalla de bloqueo</string>
 
     <!--- Lock clock -->
-    <string name="lock_clock_title">Widget de Reloj</string>
-    <string name="lock_clock_summary">Ver o cambiar la forma en que los widgets de DashClock se muestran en la pantalla de inicio y en la pantalla de bloqueo</string>
+    <string name="dash_clock_title">Widget de Reloj</string>
+    <string name="dash_clock_summary">Ver o cambiar la forma en que los widgets de DashClock se muestran en la pantalla de inicio y en la pantalla de bloqueo</string>
 
     <!-- Hybrid -->
     <string name="hybrid_settings_title">Configuraciones Híbridas</string>
