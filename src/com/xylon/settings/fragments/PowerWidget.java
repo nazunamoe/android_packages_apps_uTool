@@ -177,6 +177,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         private static final String EXP_NETWORK_MODE = "pref_network_mode";
         private static final String EXP_SCREENTIMEOUT_MODE = "pref_screentimeout_mode";
         private static final String EXP_RING_MODE = "pref_ring_mode";
+        private static final String EXP_FLASH_MODE = "pref_flash_mode";
 
         private HashMap<CheckBoxPreference, String> mCheckBoxPrefs = new HashMap<CheckBoxPreference, String>();
 
@@ -184,6 +185,7 @@ public class PowerWidget extends SettingsPreferenceFragment implements
         ListPreference mNetworkMode;
         ListPreference mScreenTimeoutMode;
         MultiSelectListPreference mRingMode;
+        ListPreference mFlashMode;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -227,12 +229,15 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 updateSummary(storedRingMode, mRingMode, R.string.pref_ring_mode_summary);
             }
             mRingMode.setOnPreferenceChangeListener(this);
+            mFlashMode = (ListPreference) prefSet.findPreference(EXP_FLASH_MODE);
+            mFlashMode.setOnPreferenceChangeListener(this);
 
             // TODO: set the default values of the items
 
             // Update the summary text
             mNetworkMode.setSummary(mNetworkMode.getEntry());
             mScreenTimeoutMode.setSummary(mScreenTimeoutMode.getEntry());
+            mFlashMode.setSummary(mFlashMode.getEntry());
 
             // Add the available buttons to the list
             PreferenceCategory prefButtons = (PreferenceCategory) prefSet
@@ -291,7 +296,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 mCheckBoxPrefs.put(cb, button.getId());
 
                 // specific checks for availability on some platforms
-                if (PowerWidgetUtil.BUTTON_NETWORKMODE.equals(button.getId())) {
+                if (PowerWidgetUtil.BUTTON_FLASHLIGHT.equals(button.getId()) &&
+                        !getResources().getBoolean(R.bool.has_torch)) {
+                    // disable flashlight if it's not supported
+                    cb.setEnabled(false);
+                    mFlashMode.setEnabled(false);
+                } else if (PowerWidgetUtil.BUTTON_NETWORKMODE.equals(button.getId())) {
                     // some phones run on networks not supported by this button,
                     // so disable it
                     int network_state = -99;
@@ -391,6 +401,12 @@ public class PowerWidget extends SettingsPreferenceFragment implements
                 Settings.System.putString(getActivity().getApplicationContext().getContentResolver(),
                         Settings.System.EXPANDED_RING_MODE, TextUtils.join(SEPARATOR, arrValue));
                 updateSummary(TextUtils.join(SEPARATOR, arrValue), mRingMode, R.string.pref_ring_mode_summary);
+            } else if (preference == mFlashMode) {
+                int value = Integer.valueOf((String) newValue);
+                int index = mFlashMode.findIndexOfValue((String) newValue);
+                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                        Settings.System.EXPANDED_FLASH_MODE, value);
+                mFlashMode.setSummary(mFlashMode.getEntries()[index]);
             }
             return true;
         }

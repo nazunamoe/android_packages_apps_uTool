@@ -449,6 +449,7 @@
     <string name="title_toggle_networkmode">Network Mode</string>
     <string name="title_toggle_autorotate">Orientation</string>
     <string name="title_toggle_airplane">Airplane Mode</string>
+    <string name="title_toggle_flashlight">LED Flashlight</string>
     <string name="title_toggle_sleep">Go To Sleep</string>
     <string name="title_toggle_media_play_pause">Play/Pause Music</string>
     <string name="title_toggle_media_previous">Previous Music Track</string>
@@ -468,6 +469,7 @@
     <string name="cm_sound_mode_vibrate">Vibrate</string>
     <string name="cm_sound_mode_sound">Sound</string>
     <string name="cm_sound_mode_soundVibrate">Sound &amp; Vibrate</string>
+    <string name="pref_flash_mode_title">Flash Mode</string>
     <string name="expanded_haptic_feedback_title">Haptic Feedback</string>
     <string name="power_widget_additional_options_cat">Additional options</string>
     <string name="brightness_location_title">Brightness slider location</string>

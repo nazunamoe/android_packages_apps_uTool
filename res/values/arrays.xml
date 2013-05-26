@@ -1058,6 +1058,15 @@
         <item>3</item>
     </string-array>
 
+    <string-array name="entries_flash_widget">
+        <item>Normal</item>
+        <item>High</item>
+    </string-array>
+    <string-array name="values_flash_widget" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
     <string-array name="haptic_feedback_entries">
         <item>Use global setting</item>
         <item>On</item>
