@@ -322,7 +322,7 @@
     <string name="toggle_action_title">Action %1$s &amp; icône</string>
     <string name="toggle_action_title_alt">Appui long action %1$s &amp; icône</string>
     <string name="toggle_longpress_title">Appui long de l\'action %1$s</string>
-    <string name="custom_toggle_desc">Chaque appui fera passer l'\interrupteur à l\'action suivante. Si votre interrupteur a une action vide, et pas d\'icône défini, l\'action de l\'appui long sera affichée.</string>
+    <string name="custom_toggle_desc">Chaque appui fera passer l\'interrupteur à l\'action suivante. Si votre interrupteur a une action vide, et pas d\'icône défini, l\'action de l\'appui long sera affichée.</string>
     <string name="custom_help_title">Comment ça marche</string>
     <string name="custom_help_summary">Appuyer pour plus d\'informations</string>
     <string name="custom_toggle_okay">Ok</string>
@@ -615,7 +615,7 @@
 
    <!-- Ribbon -->
     <string name="ribbon_dialog_arrange_title">Disposition du ruban</string>
-    <string name="ribbon_instructions">Appuyer sur l\'icône pour le modifier. Plus d'options dans le menu.</string>
+    <string name="ribbon_instructions">Appuyer sur l\'icône pour le modifier. Plus d\'options dans le menu.</string>
     <string name="ribbon_chooser_instructions">Sélectionner le ruban à configurer.</string>
     <string name="ribbon_targets_cat">Options du Ruban</string>
     <string name="enable_ribbon_text_title">Afficher le nom de l\'appli</string>
