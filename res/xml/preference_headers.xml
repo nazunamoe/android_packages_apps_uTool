@@ -33,7 +33,7 @@
 
      <header
         android:id="@+id/pie"
-        android:fragment="com.xylon.settings.fragments.Pie"
+        android:fragment="com.xylon.settings.fragments.PieControl"
         android:title="@string/pie"
         android:icon="@drawable/ic_xy_settings_pie"
         android:summary="@string/header_summary" />

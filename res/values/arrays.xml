@@ -663,70 +663,113 @@
         <item>30000</item>
     </string-array>
 
-    <string-array name="entries_pie_gravity">
-        <item>@string/pie_gravity_left</item>
-        <item>@string/pie_gravity_top</item>
-        <item>@string/pie_gravity_right</item>
-        <item>@string/pie_gravity_bottom</item>
+    <string-array name="pie_icon_color_mode_entries">
+        <item>@string/pie_icon_color_mode_all_icons</item>
+        <item>@string/pie_icon_color_mode_system_icons</item>
+        <item>@string/pie_icon_color_mode_system_custom_icons</item>
     </string-array>
-    <string-array name="values_pie_gravity" translatable="false">
+
+    <string-array name="pie_icon_color_mode_values" translatable="false">
         <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pie_control_entries">
+        <item>@string/pie_control_disabled</item>
+        <item>@string/pie_control_expanded</item>
+        <item>@string/pie_control_always</item>
+    </string-array>
+
+    <string-array name="pie_control_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pie_qty_entries" translatable="false">
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
-    <string-array name="entries_pie_size">
-        <item>@string/pie_size_small</item>
-        <item>@string/pie_size_default</item>
-        <item>@string/pie_size_large</item>
-        <item>@string/pie_size_gigantic</item>
-    </string-array>
-    <string-array name="values_pie_size" translatable="false">
-        <item>0.9</item>
-        <item>1.0</item>
-        <item>1.1</item>
-        <item>1.2</item>
-    </string-array>
-
-    <string-array name="entries_pie_mode">
-        <item>@string/pie_mode_bare</item>
-        <item>@string/pie_mode_quick</item>
-        <item>@string/pie_mode_default</item>
-        <item>@string/pie_mode_slow</item>
-    </string-array>
-    <string-array name="values_pie_mode" translatable="false">
-        <item>-1</item>
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-    </string-array>
-
-    <string-array name="entries_pie_gap">
-        <item>@string/pie_gap_none</item>
-        <item>@string/pie_gap_small</item>
-        <item>@string/pie_gap_big</item>
-        <item>@string/pie_gap_huge</item>
-    </string-array>
-
-    <string-array name="values_pie_gap" translatable="false">
-        <item>0</item>
+    <string-array name="pie_qty_values" translatable="false">
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
-    <string-array name="entries_pie_trigger">
-        <item>@string/pie_trigger_small</item>
-        <item>@string/pie_trigger_normal</item>
-        <item>@string/pie_trigger_big</item>
-        <item>@string/pie_trigger_huge</item>
+    <string-array name="pie_qty_second_layer_entries" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
     </string-array>
-    <string-array name="values_pie_trigger" translatable="false">
-        <item>0.5</item>
-        <item>1.0</item>
-        <item>2.0</item>
-        <item>3.0</item>
+
+    <string-array name="pie_qty_second_layer_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="pie_button_entries">
+        <item>@string/pie_action_back</item>
+        <item>@string/pie_action_custom_app</item>
+        <item>@string/pie_action_home</item>
+        <item>@string/pie_action_kill</item>
+        <item>@string/pie_action_lastapp</item>
+        <item>@string/pie_action_menu</item>
+        <item>@string/pie_action_notifications</item>
+        <item>@string/pie_action_ime</item>
+        <item>@string/pie_action_recents</item>
+        <item>@string/pie_action_power</item>
+        <item>@string/pie_action_quicksettings</item>
+        <item>@string/pie_action_screenshot</item>
+        <item>@string/pie_action_search</item>
+        <item>@string/pie_action_widgets</item>
+        <item>@string/pie_action_none</item>
+    </string-array>
+
+    <string-array name="pie_button_values" translatable="false">
+        <item>**back**</item>
+        <item>**app**</item>
+        <item>**home**</item>
+        <item>**kill**</item>
+        <item>**lastapp**</item>
+        <item>**menu**</item>
+        <item>**notifications**</item>
+        <item>**ime**</item>
+        <item>**recents**</item>
+        <item>**power**</item>
+        <item>**quicksettings**</item>
+        <item>**screenshot**</item>
+        <item>**search**</item>
+        <item>**widgets**</item>
+        <item>**null**</item>
+    </string-array>
+
+    <string-array name="pie_trigger_gravity_left_right_entries">
+        <item>@string/pie_trigger_gravity_left_right_bottom</item>
+        <item>@string/pie_trigger_gravity_left_right_center</item>
+        <item>@string/pie_trigger_gravity_left_right_top</item>
+    </string-array>
+
+    <!-- Gravity.BOTTOM = 80, Gravity.CENTER_VERTICAL = 16, Gravity_TOP = 48 -->
+    <string-array name="pie_trigger_gravity_left_right_values" translatable="false">
+        <item>80</item>
+        <item>16</item>
+        <item>48</item>
     </string-array>
 
     <!-- Expanded desktop -->
