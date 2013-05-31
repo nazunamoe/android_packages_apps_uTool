@@ -13,10 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pie_control_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
         android:key="pie_control"
@@ -27,12 +24,12 @@
 
     <PreferenceScreen
         android:key="pie_style"
-        android:fragment="com.android.settings.slim.PieStyleSettings"
+        android:fragment="com.xylon.settings.fragments.PieStyleSettings"
         android:title="@string/pie_style" />
 
     <PreferenceScreen
         android:key="pie_trigger"
-        android:fragment="com.android.settings.slim.PieTriggerSettings"
+        android:fragment="com.xylon.settings.fragments.PieTriggerSettings"
         android:title="@string/pie_trigger" />
 
     <PreferenceCategory
@@ -40,7 +37,7 @@
 
         <PreferenceScreen
             android:key="pie_button"
-            android:fragment="com.android.settings.slim.PieButtonSettings"
+            android:fragment="com.xylon.settings.fragments.PieButtonSettings"
             android:title="@string/pie_button" />
 
         <CheckBoxPreference
@@ -51,13 +48,13 @@
 
         <PreferenceScreen
             android:key="pie_button_second_layer"
-            android:fragment="com.android.settings.slim.PieButtonSecondLayerSettings"
+            android:fragment="com.xylon.settings.fragments.PieButtonSecondLayerSettings"
             android:title="@string/pie_button_second_layer"
             android:dependency="pie_second_layer" />
 
         <PreferenceScreen
             android:key="pie_button_style"
-            android:fragment="com.android.settings.slim.PieButtonStyleSettings"
+            android:fragment="com.xylon.settings.fragments.PieButtonStyleSettings"
             android:title="@string/pie_button_style" />
 
     </PreferenceCategory>

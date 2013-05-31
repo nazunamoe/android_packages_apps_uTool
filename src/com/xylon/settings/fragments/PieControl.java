@@ -43,7 +43,7 @@ public class PieControl extends SettingsPreferenceFragment
     private static final String PIE_STYLE = "pie_style";
     private static final String PIE_BUTTON_STYLE = "pie_button_style";
     private static final String PIE_TRIGGER = "pie_trigger";
-
+ 
     private ListPreference mPieControl;
     private CheckBoxPreference mShowSnap;
     private CheckBoxPreference mShowText;

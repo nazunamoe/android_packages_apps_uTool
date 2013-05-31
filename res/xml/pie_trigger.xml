@@ -14,9 +14,7 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/pie_control_trigger_positions"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
         style="?android:preferenceInformationStyle"
@@ -60,11 +58,11 @@
             android:title="@string/pie_trigger_gravity_left_right_title"
             android:dialogTitle="@string/pie_trigger_gravity_left_right_dialog_title" />
 
-        <com.xylon.settings.widget.SeekBarPreference
+        <com.xylon.settings.widgets.SeekBarPreference
             android:key="pie_trigger_height"
             android:title="@string/pie_trigger_height_title" />
 
-        <com.xylon.settings.widget.SeekBarPreference
+        <com.xylon.settings.widgets.SeekBarPreference
             android:key="pie_trigger_thickness"
             android:title="@string/pie_trigger_thickness_title" />
 
