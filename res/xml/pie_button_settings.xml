@@ -22,7 +22,7 @@
                 android:title="@string/pie_qty_title"
                 android:summary="@string/pie_qty_summary" />
 
-        <CheckBoxPreference
+        <SwitchPreference
                 android:key="pie_enable_long"
                 android:title="@string/pie_enable_long" />
 

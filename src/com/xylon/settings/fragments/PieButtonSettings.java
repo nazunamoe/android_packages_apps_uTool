@@ -45,6 +45,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Log;
@@ -74,7 +75,7 @@ public class PieButtonSettings extends SettingsPreferenceFragment implements
     public static final int REQUEST_PICK_LANDSCAPE_ICON = 201;
 
     ListPreference mPieButtonQty;
-    CheckBoxPreference mEnablePieLong;
+    SwitchPreference mEnablePieLong;
 
     Preference mPendingPreference;
 
@@ -163,27 +164,19 @@ public class PieButtonSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen,
-            Preference preference) {
-        if (preference == mEnablePieLong) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.PIE_LONG_PRESS_ENABLE,
-                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
-
-            refreshSettings();
-            setHasOptionsMenu(true);
-            return true;
-        }
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
-
-
-    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (!mCheckPreferences) {
             return false;
         }
-        if (preference == mPieButtonQty) {
+        if (preference == mEnablePieLong) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.PIE_LONG_PRESS_ENABLE,
+                    (Boolean) newValue ? 1 : 0);
+
+            refreshSettings();
+            setHasOptionsMenu(true);
+            return true;
+        } else if (preference == mPieButtonQty) {
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.PIE_BUTTONS_QTY, val);
@@ -305,8 +298,9 @@ public class PieButtonSettings extends SettingsPreferenceFragment implements
         int pieLong = Settings.System.getInt(mContext.getContentResolver(),
                      Settings.System.PIE_LONG_PRESS_ENABLE, 0);
 
-        mEnablePieLong = (CheckBoxPreference) findPreference(PREF_PIE_ENABLE_LONG);
+        mEnablePieLong = (SwitchPreference) findPreference(PREF_PIE_ENABLE_LONG);
         mEnablePieLong.setChecked(pieLong == 1);
+        mEnablePieLong.setOnPreferenceChangeListener(this);
 
 
         int pieQuantity = Settings.System.getInt(getContentResolver(),
@@ -476,6 +470,8 @@ public class PieButtonSettings extends SettingsPreferenceFragment implements
                 resId = mSystemUiResources.getIdentifier("com.android.systemui:drawable/ic_sysbar_notifications", null, null);
             } else if (uri.equals("**lastapp**")) {
                 resId = mSystemUiResources.getIdentifier("com.android.systemui:drawable/ic_sysbar_lastapp", null, null);
+            } else if (uri.equals("**quicksettings**")) {
+                resId = mSystemUiResources.getIdentifier("com.android.systemui:drawable/ic_sysbar_qs", null, null);
             }
         } else {
             try {
@@ -534,6 +530,8 @@ public class PieButtonSettings extends SettingsPreferenceFragment implements
                 return getResources().getString(R.string.pie_action_notifications);
             else if (uri.equals("**lastapp**"))
                 return getResources().getString(R.string.pie_action_lastapp);
+            else if (uri.equals("**quicksettings**"))
+                return getResources().getString(R.string.pie_action_quicksettings);
             else if (uri.equals("**null**"))
                 return getResources().getString(R.string.pie_action_none);
         } else {

@@ -707,6 +707,7 @@
         <item>@string/pie_action_recents</item>
         <item>@string/pie_action_power</item>
         <item>@string/pie_action_screenshot</item>
+        <item>@string/pie_action_quicksettings</item>
         <item>@string/pie_action_search</item>
         <item>@string/pie_action_widgets</item>
         <item>@string/pie_action_none</item>
@@ -724,6 +725,7 @@
         <item>**recents**</item>
         <item>**power**</item>
         <item>**screenshot**</item>
+        <item>**quicksettings**</item>
         <item>**search**</item>
         <item>**widgets**</item>
         <item>**null**</item>

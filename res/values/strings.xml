@@ -183,7 +183,7 @@
     <string name="pie_control_title">SlimPIE</string>
     <string name="pie_control_dialog_title">SlimPIE</string>
     <string name="pie_control_always">Show always</string>
-    <string name="pie_control_expanded">Only on expanded desktop mode</string>
+    <string name="pie_control_expanded">Expanded Mode</string>
     <string name="pie_control_disabled">Disabled</string>
     <string name="pie_control_size">Navigation size</string>
     <string name="pie_control_trigger_positions">Trigger options</string>
@@ -246,7 +246,7 @@
     <string name="pie_qty_summary">Changing this will reset your current buttons</string>
     <string name="pie_action_title">Button %1$s action &amp; icon</string>
     <string name="pie_longpress_title">Button %1$s longpress action</string>
-    <string name="pie_enable_long">Enable longpress for pie buttons</string>
+    <string name="pie_enable_long">Longpress for pie buttons</string>
     <string name="pie_button">Buttons</string>
     <string name="pie_button_cat">Buttons</string>
     <string name="pie_buttons_options">Button options</string>
@@ -261,6 +261,7 @@
     <string name="pie_action_lastapp">Last app</string>
     <string name="pie_action_search">Search</string>
     <string name="pie_action_screenshot">Screenshot</string>
+    <string name="pie_action_quicksettings">Quicksettings panel</string>
     <string name="pie_action_menu">Menu</string>
     <string name="pie_action_ime">Open IME Switcher</string>
     <string name="pie_action_kill">Kill app</string>
