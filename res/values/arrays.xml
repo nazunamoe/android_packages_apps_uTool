@@ -587,6 +587,17 @@
         <item>2</item>
     </string-array>
 
+    <string-array name="color_style_entries" translatable="false">
+        <item>@string/color</item>
+        <item>@string/color_background</item>
+        <item>@string/background</item>
+    </string-array>
+    <string-array name="color_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
     <string-array name="all_color_style_entries" translatable="false">
         <item>@string/all_color</item>
         <item>@string/stock_color</item>

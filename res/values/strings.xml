@@ -673,10 +673,15 @@
     <string name="transparency_dialog_match_keyguard_alpha">Match lockscreen alpha</string>
     <string name="transparency_dialog_transparency">Homescreen alpha</string>
     <string name="transparency_dialog_transparency_keyguard">Lockscreen alpha</string>
+    <string name="navigation_bar_style_title">Navigation Bar color style</string>
     <string name="navigation_bar_color_title">Navigation Bar color</string>
+    <string name="status_bar_style_title">Status Bar color style</string>
     <string name="status_bar_color_title">Status Bar color</string>
+    <string name="color">Color</string>
+    <string name="color_background">Background with Alpha Color</string>
+    <string name="background">Background (Default)</string>
+    <string name="status_icon_style_title">Status color style</string>
     <string name="status_icon_color_title">Status color</string>
-    <string name="status_enable_color_title">Status color style</string>
 
     <!-- General UI | Other Modifications unknown -->
 

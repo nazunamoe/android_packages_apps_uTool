@@ -62,6 +62,13 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusExtras extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
     private static final String TAG = "Status Extras";
 
+    // Colors, Transparency
+    private static final String ICON_COLOR_STYLE = "icon_color_style";
+    private static final String STATUS_ICON_COLOR = "status_icon_color";
+    private static final String BAR_COLOR_STYLE = "bar_color_style";
+    private static final String STATUS_BAR_COLOR = "status_bar_color";
+
+    // Others
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String PREF_STATUSBAR_BRIGHTNESS = "statusbar_brightness_slider";
@@ -71,8 +78,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_NOTIFICATION_BEHAVIOUR = "notifications_behaviour";
     private static final String PREF_HIDE_STATUSBAR = "hide_statusbar";
     private static final String PREF_HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT = "hidden_statusbar_pulldown_timeout";
-    private static final String ICON_COLOR_STYLE = "icon_color_style";
-    private static final String STATUS_ICON_COLOR = "status_icon_color";
     private static final String PREF_NOTIFICATION_WALLPAPER_RESET = "reset_wallpaper";
     private static final String PREF_LIST_EXPANDED_DESKTOP = "expanded_desktop";
 
@@ -83,19 +88,21 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String WALLPAPER_NAME = "notification_wallpaper.jpg";
 
+    CheckBoxPreference mStatusBarNotifCount;
+    CheckBoxPreference mStatusbarSliderPreference;
+    CheckBoxPreference mShowWifiName;
+    ColorPickerPreference mStatusBarColor;
+    ColorPickerPreference mStatusColor;
+    ListPreference mNotificationsBehavior;
+    ListPreference mExpandedDesktopListPref;
+    ListPreference mHideStatusBar;
+    ListPreference mHiddenStatusbarPulldownTimeout;
+    ListPreference mStatusBarColorStyle;
+    ListPreference mStatusColorStyle;
     Preference mCustomLabel;
     Preference mNotificationWallpaper;
     Preference mWallpaperAlpha;
     Preference mResetWallpaper;
-    CheckBoxPreference mStatusBarNotifCount;
-    CheckBoxPreference mStatusbarSliderPreference;
-    CheckBoxPreference mShowWifiName;
-    ListPreference mNotificationsBehavior;
-    ListPreference mExpandedDesktopListPref;
-    ListPreference mHideStatusBar;
-    ListPreference mStatusColorStyle;
-    ListPreference mHiddenStatusbarPulldownTimeout;;
-    ColorPickerPreference mStatusColor;
 
     String mCustomLabelText = null;
 
@@ -114,6 +121,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
         mCustomLabel = prefSet.findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
+
+        mStatusBarColorStyle = (ListPreference) findPreference(BAR_COLOR_STYLE);
+        mStatusBarColorStyle.setOnPreferenceChangeListener(this);
+
+        mStatusBarColor = (ColorPickerPreference) findPreference(STATUS_BAR_COLOR);
+        mStatusBarColor.setOnPreferenceChangeListener(this);
 
         mStatusColorStyle = (ListPreference) findPreference(ICON_COLOR_STYLE);
         mStatusColorStyle.setOnPreferenceChangeListener(this);
@@ -350,6 +363,21 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             int val = Integer.parseInt((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HIDDEN_STATUSBAR_PULLDOWN_TIMEOUT, val);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mStatusBarColorStyle) {
+            int val = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_STYLE, val);
+            Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mStatusBarColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
         } else if (preference == mStatusColorStyle) {

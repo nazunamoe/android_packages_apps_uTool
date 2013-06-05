@@ -57,6 +57,12 @@
             android:key="width_land"
             android:title="@string/width_land_title" />
 
+        <ListPreference
+            android:key="bar_color_style"
+            android:entries="@array/color_style_entries"
+            android:entryValues="@array/color_style_values"
+            android:title="@string/navigation_bar_style_title" />
+
         <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="nav_bar_color"
                 android:title="@string/navigation_bar_color_title"
