@@ -1188,6 +1188,29 @@
         <item>6</item>
     </string-array>
 
+    <!-- Notification icon opacity -->
+    <string-array name="status_bar_icon_opacity_entries">
+        <item>35%</item>
+        <item>45%</item>
+        <item>55% (default)</item>
+        <item>65%</item>
+        <item>75%</item>
+        <item>85%</item>
+        <item>95%</item>
+        <item>100%</item>
+    </string-array>
+
+    <string-array name="status_bar_icon_opacity_values">
+        <item>89</item>
+        <item>115</item>
+        <item>140</item>
+        <item>166</item>
+        <item>191</item>
+        <item>217</item>
+        <item>242</item>
+        <item>255</item>
+    </string-array>
+
     <!-- Hidden Statusbar Pulldown -->
     <string-array name="hidden_statusbar_pulldown_timeout_entries" translatable="false">
         <item>@string/time_2_5_seconds</item>
@@ -1218,4 +1241,16 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <!-- HALO -->
+    <string-array name="entries_halo_state">
+        <item>@string/halo_state_black</item>
+        <item>@string/halo_state_white</item>
+    </string-array>
+
+    <string-array name="values_halo_state" translatable="false">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
 </resources>

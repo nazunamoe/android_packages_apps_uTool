@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.app.INotificationManager;
 import android.content.Intent;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -16,6 +17,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -69,7 +72,11 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String STATUS_BAR_COLOR = "status_bar_color";
 
     // Others
+    private static final String PREF_HALO_STATE = "halo_state";
+    private static final String PREF_HALO_HIDE = "halo_hide";
+    private static final String PREF_HALO_REVERSED = "halo_reversed";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+    private static final String PREF_STATUS_BAR_ICON_OPACITY = "status_bar_icon_opacity";
     private static final String PREF_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
     private static final String PREF_STATUSBAR_BRIGHTNESS = "statusbar_brightness_slider";
     private static final String PREF_NOTIFICATION_WALLPAPER = "notification_wallpaper";
@@ -88,6 +95,8 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
     private static final String WALLPAPER_NAME = "notification_wallpaper.jpg";
 
+    CheckBoxPreference mHaloHide;
+    CheckBoxPreference mHaloReversed;
     CheckBoxPreference mStatusBarNotifCount;
     CheckBoxPreference mStatusbarSliderPreference;
     CheckBoxPreference mShowWifiName;
@@ -95,10 +104,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     ColorPickerPreference mStatusColor;
     ListPreference mNotificationsBehavior;
     ListPreference mExpandedDesktopListPref;
+    ListPreference mHaloState;
     ListPreference mHideStatusBar;
     ListPreference mHiddenStatusbarPulldownTimeout;
     ListPreference mStatusBarColorStyle;
     ListPreference mStatusColorStyle;
+    ListPreference mStatusBarIconOpacity;
     Preference mCustomLabel;
     Preference mNotificationWallpaper;
     Preference mWallpaperAlpha;
@@ -107,8 +118,8 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     String mCustomLabelText = null;
 
     private int seekbarProgress;
-
     private static int mBarBehaviour;
+    private INotificationManager mNotificationManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -118,6 +129,21 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver cr = mContext.getContentResolver();
+
+        mNotificationManager = INotificationManager.Stub.asInterface(
+                ServiceManager.getService(Context.NOTIFICATION_SERVICE));
+
+        mHaloState = (ListPreference) prefSet.findPreference(PREF_HALO_STATE);
+        mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
+        mHaloState.setOnPreferenceChangeListener(this);
+
+        mHaloHide = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_HIDE);
+        mHaloHide.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_HIDE, 0) == 1);
+
+        mHaloReversed = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_REVERSED);
+        mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_REVERSED, 1) == 1);
 
         mCustomLabel = prefSet.findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
@@ -178,6 +204,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mShowWifiName.setChecked(Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.NOTIFICATION_SHOW_WIFI_SSID, 0) == 1);
 
+        mStatusBarIconOpacity = (ListPreference) findPreference(PREF_STATUS_BAR_ICON_OPACITY);
+        int iconOpacity = Settings.System.getInt(getActivity().getApplicationContext().getContentResolver(),
+                Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, 140);
+        mStatusBarIconOpacity.setValue(String.valueOf(iconOpacity));
+        mStatusBarIconOpacity.setOnPreferenceChangeListener(this);
+
         if (isTablet(mContext)) {
             mStatusbarSliderPreference.setEnabled(false);
             mHideStatusBar.setEnabled(false);
@@ -198,6 +230,15 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private void openTransparencyDialog() {
         getFragmentManager().beginTransaction().add(new AdvancedTransparencyDialog(), null)
                 .commit();
+    }
+
+    private boolean isHaloPolicyBlack() {
+        try {
+            return mNotificationManager.isHaloPolicyBlack();
+        } catch (android.os.RemoteException ex) {
+                // System dead
+        }
+        return true;
     }
 
     @Override
@@ -331,6 +372,14 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             // TransparencyDialog(), null).commit();
             openTransparencyDialog();
             return true;
+        } else if (preference == mHaloHide) {  
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_HIDE, mHaloHide.isChecked()
+                    ? 1 : 0);  
+        } else if (preference == mHaloReversed) {  
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
+                    ? 1 : 0);  
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -394,6 +443,19 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_ICON_COLOR, intHex);
             Helpers.restartSystemUI();
+            return true;
+        } else if (preference == mStatusBarIconOpacity) {
+            int iconOpacity = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
+            return true;
+        } else if (preference == mHaloState) {
+            boolean state = Integer.valueOf((String) newValue) == 1;
+            try {
+                mNotificationManager.setHaloPolicyBlack(state);
+            } catch (android.os.RemoteException ex) {
+                // System dead
+            }          
             return true;
         }
 
