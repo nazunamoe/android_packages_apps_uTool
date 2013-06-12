@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="app_name">Outils</string>
+    <string name="app_name">Outils uXylon</string>
 
     <!-- Header Strings -->
     <string name="user_interface">Interface Générale</string>
@@ -59,7 +59,7 @@
     <string name="themes_title">Thèmes</string>
 
     <!-- Share to clipboard -->
-    <string name="clipboard_notification">Copié dans le Presse-Papiers.</string>
+    <string name="clipboard_notification">Copié dans le presse-papiers.</string>
 
     <!-- Menu Strings -->
     <string name="menu_ribbon_toggles">Configurer les interrupteurs</string>
@@ -240,14 +240,14 @@
 
     <!-- HALO -->
     <string name="halo_cat">HALO</string>
-    <string name="halo_hide_title">Masquer HALO après activité</string>
-    <string name="halo_hide_summary">HALO va apparaître pour une tâche, puis disparaître peu après.</string>
-    <string name="halo_reversed_title">Inverser les gestes HALO</string>
-    <string name="halo_reversed_summary">Applies tasking or dragging to the double-tap-swipe gesture</string>
-    <string name="halo_state_title">Politique du HALO</string>
-    <string name="halo_state_summary">Pour ajouter les notifications du HALO dans une liste noire/blanche</string>
-    <string name="halo_state_black">Liste blanche</string>
-    <string name="halo_state_white">Liste noire</string>
+    <string name="halo_hide_title">Masquer après activité</string>
+    <string name="halo_hide_summary">Il va apparaître pour une tâche, puis se cacher peu après</string>
+    <string name="halo_reversed_title">Inverser les gestes</string>
+    <string name="halo_reversed_summary">Inversé = Appui double pour interargir et simple pour déplacer</string>
+    <string name="halo_state_title">Gestion des notifications</string>
+    <string name="halo_state_summary">Gestion des notifications affichées par une liste noire ou blanche (à cocher dans Informations sur l\'application)</string>
+    <string name="halo_state_black">Par liste noire</string>
+    <string name="halo_state_white">Par liste blanche</string>
 
     <!-- Battery style -->
     <string name="battery_icon_title">Style de batterie</string>
@@ -601,7 +601,7 @@
 
     <!-- General UI | Keyboard -->
     <string name="keyboard_custom">Clavier</string>
-    <string name="fullscreen_keyboard_title">Désactiver le clavier plein écran</string>
+    <string name="fullscreen_keyboard">Désactiver le clavier plein écran</string>
     <string name="fullscreen_keyboard_summary">Clavier au format paysage ne prendra jamais la totalité de l\'écran</string>
     <string name="keyboard_rotation_toggle_title">Rotation automatique du clavier</string>
     <string name="keyboard_rotation_toggle_summary">Forcer la rotation automatique quand le clavier est affiché</string>
@@ -826,8 +826,8 @@
     <string name="lockscreen_vibrate_enabled_head">Vibrer lors du déverrouillage</string>
 
     <!--- Lock clock -->
-    <string name="lock_clock_title">Widget horloge</string>
-    <string name="lock_clock_summary">Afficher ou modifier la façon dont le widget DashClock est affiché sur l\'écran d\'accueil ou de verrouillage</string>
+    <string name="dash_clock_title">Widget horloge</string>
+    <string name="dash_clock_summary">Afficher ou modifier la façon dont le widget DashClock est affiché sur l\'écran d\'accueil ou de verrouillage</string>
 
     <!-- Hybrid -->
     <string name="hybrid_settings_title">Paramètres hybride</string>
