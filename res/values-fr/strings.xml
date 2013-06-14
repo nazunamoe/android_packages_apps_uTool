@@ -245,9 +245,11 @@
     <string name="halo_reversed_title">Inverser les gestes</string>
     <string name="halo_reversed_summary">Inversé = Appui double pour interargir et simple pour déplacer</string>
     <string name="halo_state_title">Gestion des notifications</string>
-    <string name="halo_state_summary">Gestion des notifications affichées par une liste noire ou blanche (à cocher dans Informations sur l\'application)</string>
+    <string name="halo_state_summary">Gestion des notifications affichées par une liste noire ou blanche (Paramètres, applications, sélectionner une appli)</string>
     <string name="halo_state_black">Par liste noire</string>
     <string name="halo_state_white">Par liste blanche</string>
+    <string name="halo_pause_title">Pause de l\'application</string>
+    <string name="halo_pause_summary">En ouvrant une application en pop-up, l\'application en cours sera mise en pause</string>
 
     <!-- Battery style -->
     <string name="battery_icon_title">Style de batterie</string>
