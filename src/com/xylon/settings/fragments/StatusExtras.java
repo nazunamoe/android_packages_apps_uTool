@@ -2,6 +2,7 @@
 package com.xylon.settings.fragments;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -75,6 +76,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_HALO_STATE = "halo_state";
     private static final String PREF_HALO_HIDE = "halo_hide";
     private static final String PREF_HALO_REVERSED = "halo_reversed";
+    private static final String PREF_HALO_PAUSE = "halo_pause";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
     private static final String PREF_STATUS_BAR_ICON_OPACITY = "status_bar_icon_opacity";
     private static final String PREF_STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
@@ -97,6 +99,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
     CheckBoxPreference mHaloHide;
     CheckBoxPreference mHaloReversed;
+    CheckBoxPreference mHaloPause;
     CheckBoxPreference mStatusBarNotifCount;
     CheckBoxPreference mStatusbarSliderPreference;
     CheckBoxPreference mShowWifiName;
@@ -144,6 +147,11 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mHaloReversed = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_REVERSED);
         mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_REVERSED, 1) == 1);
+
+        int isLowRAM = (ActivityManager.isLargeRAM()) ? 0 : 1;
+        mHaloPause = (CheckBoxPreference) prefSet.findPreference(KEY_HALO_PAUSE);
+        mHaloPause.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_PAUSE, isLowRAM) == 1);
 
         mCustomLabel = prefSet.findPreference(PREF_CUSTOM_CARRIER_LABEL);
         updateCustomLabelTextSummary();
@@ -380,6 +388,10 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_REVERSED, mHaloReversed.isChecked()
                     ? 1 : 0);  
+        } else if (preference == mHaloPause) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_PAUSE, mHaloPause.isChecked()
+                    ? 1 : 0);
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
