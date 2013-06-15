@@ -118,7 +118,8 @@
             android:title="@string/halo_style_title"
             android:summary="@string/halo_style_summary"
             android:entries="@array/entries_halo_style"
-            android:entryValues="@array/values_halo_style" />
+            android:entryValues="@array/values_halo_style"
+            android:defaultValue="2" />
 
     </PreferenceCategory>
 
