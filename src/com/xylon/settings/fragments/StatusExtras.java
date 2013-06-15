@@ -46,7 +46,6 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -101,7 +100,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     CheckBoxPreference mHaloHide;
     CheckBoxPreference mHaloReversed;
     CheckBoxPreference mHaloPause;
-    CheckBoxPreference mHaloStyle;
     CheckBoxPreference mStatusBarNotifCount;
     CheckBoxPreference mStatusbarSliderPreference;
     CheckBoxPreference mShowWifiName;
@@ -110,6 +108,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     ListPreference mNotificationsBehavior;
     ListPreference mExpandedDesktopListPref;
     ListPreference mHaloState;
+    ListPreference mHaloStyle;
     ListPreference mHideStatusBar;
     ListPreference mHiddenStatusbarPulldownTimeout;
     ListPreference mStatusBarColorStyle;
@@ -140,7 +139,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
         mHaloState = (ListPreference) prefSet.findPreference(PREF_HALO_STATE);
         mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
-        mHaloState.setOnPreferenceChangeListener(this);
+        mHaloState.setOnPreferenceChangeListener(this); 
 
         mHaloHide = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_HIDE);
         mHaloHide.setChecked(Settings.System.getInt(mContext.getContentResolver(),
@@ -150,9 +149,8 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_REVERSED, 1) == 1);
 
-        mHaloStyle = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_STYLE);
-        mHaloStyle.setChecked(Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.HALO_STYLE, 0) == 1);
+        mHaloStyle = (ListPreference) findPreference(PREF_HALO_STYLE);
+        mHaloStyle.setOnPreferenceChangeListener(this);
 
         int isLowRAM = (ActivityManager.isLargeRAM()) ? 0 : 1;
         mHaloPause = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_PAUSE);
@@ -398,11 +396,6 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_PAUSE, mHaloPause.isChecked()
                     ? 1 : 0);
-        } else if (preference == mHaloStyle) {
-            Settings.System.putInt(mContext.getContentResolver(),
-                    Settings.System.HALO_STYLE, mHaloStyle.isChecked()
-                    ? 1 : 0);
-            Helpers.restartSystemUI();
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -471,6 +464,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             int iconOpacity = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
+            return true;
+        } else if (preference == mHaloStyle) {
+            int val = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_STYLE, val);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mHaloState) {
             boolean state = Integer.valueOf((String) newValue) == 1;
