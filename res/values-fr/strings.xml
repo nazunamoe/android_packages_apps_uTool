@@ -250,6 +250,15 @@
     <string name="halo_state_white">Par liste blanche</string>
     <string name="halo_pause_title">Pause de l\'application</string>
     <string name="halo_pause_summary">En ouvrant une application en pop-up, l\'application en cours sera mise en pause</string>
+    <string name="halo_style_title">Style</string>
+    <string name="halo_style_summary">Choisir un style de bulle</string>
+    <string name="halo_black">Noir</string>
+    <string name="halo_blue">Bleu</string>
+    <string name="halo_green">Vert</string>
+    <string name="halo_white">Blanc</string>
+    <string name="halo_blue_min">Bleu minimal</string>
+    <string name="halo_green_min">Vert minimal</string>
+    <string name="halo_white_min">Blanc minimal</string>
 
     <!-- Battery style -->
     <string name="battery_icon_title">Style de batterie</string>
@@ -406,7 +415,7 @@
     <string name="title_expanded_widget">Power Widget</string>
     <string name="power_widget_buttons">Boutons</string>
     <string name="power_widget_behavior">Comportement</string>
-    <string name="title_expanded_hide_onchange">Fermer (Après action)</string>
+    <string name="title_expanded_hide_onchange">Fermer (après action)</string>
     <string name="title_expanded_hide_indicator">Masquer indicateurs</string>
     <string name="title_expanded_hide_scrollbar">Masquer barre de défilement</string>
     <string name="title_widget_picker">Boutons affichés</string>
