@@ -88,10 +88,15 @@
             android:key="halo"
             android:title="@string/halo_cat">
 
+        <SwitchPreference
+            android:key="halo_enabled"
+            android:title="@string/halo_cat" />
+
         <ListPreference
             android:key="halo_state"
             android:dialogTitle="@string/halo_state_title"
             android:title="@string/halo_state_title"
+            android:dependency="halo_enabled"
             android:summary="@string/halo_state_summary"
             android:entries="@array/entries_halo_state"
             android:entryValues="@array/values_halo_state" />
@@ -99,23 +104,27 @@
         <CheckBoxPreference
             android:key="halo_hide"
             android:title="@string/halo_hide_title"
+            android:dependency="halo_enabled"
             android:summary="@string/halo_hide_summary"
             android:defaultValue="false" />
 
         <CheckBoxPreference
             android:key="halo_reversed"
             android:title="@string/halo_reversed_title"
+            android:dependency="halo_enabled"
             android:summary="@string/halo_reversed_summary"
             android:defaultValue="true" />
 
         <CheckBoxPreference
             android:key="halo_pause"
             android:title="@string/halo_pause_title"
+            android:dependency="halo_enabled"
             android:summary="@string/halo_pause_summary" />
 
         <ListPreference
             android:key="halo_style"
             android:title="@string/halo_style_title"
+            android:dependency="halo_enabled"
             android:summary="@string/halo_style_summary"
             android:entries="@array/entries_halo_style"
             android:entryValues="@array/values_halo_style" />
