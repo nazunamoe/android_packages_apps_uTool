@@ -1,53 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+        <SwitchPreference
+            android:key="enable_clock"
+            android:title="@string/status_bar_clock_enable_title" />
+
 	<ListPreference
 		android:entries="@array/clock_style_entries"
 		android:entryValues="@array/clock_style_values"
 		android:key="clock_style"
-		android:title="@string/clock_title_enable" />
+		android:title="@string/clock_title_enable"
+                android:dependency="enable_clock" />
 
 	<ListPreference
 		android:entries="@array/clock_ampm_entries"
 		android:entryValues="@array/clock_ampm_values"
 		android:key="clock_am_pm_style"
-		android:title="@string/title_clock_ampm_entries" />
+		android:title="@string/title_clock_ampm_entries"
+                android:dependency="enable_clock" />
 
 	<ListPreference
             android:key="clock_date_display"
             android:title="@string/clock_date_display"
             android:summary="@string/clock_date_display_summary"
             android:entries="@array/clock_date_display_entries"
-            android:entryValues="@array/clock_date_display_values" />
+            android:entryValues="@array/clock_date_display_values"
+            android:dependency="enable_clock" />
 
         <ListPreference
             android:key="clock_date_style"
             android:title="@string/clock_date_style"
             android:entries="@array/clock_date_style_entries"
-            android:entryValues="@array/clock_date_style_values" />
+            android:entryValues="@array/clock_date_style_values"
+            android:dependency="enable_clock" />
 
         <ListPreference
             android:key="clock_date_format"
             android:title="@string/clock_date_format"
             android:entries="@array/clock_date_format_entries"
-            android:entryValues="@array/clock_date_format_values" />
+            android:entryValues="@array/clock_date_format_values"
+            android:dependency="enable_clock" />
 
 	<ListPreference
 		android:entries="@array/notification_action_entries"
 		android:entryValues="@array/notification_action_values"
 		android:key="clock_shortclick"
-		android:title="@string/title_clock_shortclick" />
+		android:title="@string/title_clock_shortclick"
+                android:dependency="enable_clock" />
 
 	<ListPreference
 		android:entries="@array/notification_action_entries"
 		android:entryValues="@array/notification_action_values"
 		android:key="clock_longclick"
-		android:title="@string/title_clock_longclick" />
+		android:title="@string/title_clock_longclick"
+                android:dependency="enable_clock" />
 
 	<ListPreference
 		android:entries="@array/notification_action_entries"
 		android:entryValues="@array/notification_action_values"
 		android:key="clock_doubleclick"
-                android:title="@string/title_clock_doubleclick" />
+                android:title="@string/title_clock_doubleclick"
+                android:dependency="enable_clock" />
 
 </PreferenceScreen>

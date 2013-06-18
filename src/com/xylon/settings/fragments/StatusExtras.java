@@ -25,6 +25,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.Spannable;
@@ -72,6 +73,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String STATUS_BAR_COLOR = "status_bar_color";
 
     // Others
+    private static final String PREF_HALO_ENABLED = "halo_enabled";
     private static final String PREF_HALO_STATE = "halo_state";
     private static final String PREF_HALO_HIDE = "halo_hide";
     private static final String PREF_HALO_REVERSED = "halo_reversed";
@@ -118,6 +120,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     Preference mNotificationWallpaper;
     Preference mWallpaperAlpha;
     Preference mResetWallpaper;
+    SwitchPreference mHaloEnabled;
 
     String mCustomLabelText = null;
 
@@ -136,6 +139,12 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
 
         mNotificationManager = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
+
+        mHaloEnabled = (SwitchPreference) findPreference(PREF_HALO_ENABLED);
+        mHaloEnabled.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.HALO_ENABLED,
+                0) == 1);
+        mHaloEnabled.setOnPreferenceChangeListener(this);
 
         mHaloState = (ListPreference) prefSet.findPreference(PREF_HALO_STATE);
         mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
@@ -464,6 +473,11 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             int iconOpacity = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
                     Settings.System.STATUS_BAR_NOTIF_ICON_OPACITY, iconOpacity);
+            return true;
+        } else if (preference == mHaloEnabled) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_ENABLED,
+                    (Boolean) newValue ? 1 : 0);
             return true;
         } else if (preference == mHaloStyle) {
             int val = Integer.valueOf((String) newValue);

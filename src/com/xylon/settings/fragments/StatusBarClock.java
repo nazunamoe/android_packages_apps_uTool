@@ -14,6 +14,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.format.DateFormat;
@@ -32,6 +33,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class StatusBarClock extends SettingsPreferenceFragment implements
                 ShortcutPickerHelper.OnPickListener, OnPreferenceChangeListener {
 
+    private static final String PREF_CLOCK = "enable_clock";
     private static final String PREF_ENABLE = "clock_style";
     private static final String PREF_AM_PM_STYLE = "clock_am_pm_style";
     private static final String PREF_CLOCK_DATE_DISPLAY = "clock_date_display";
@@ -61,6 +63,7 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
     ListPreference mClockShortClick;
     ListPreference mClockLongClick;
     ListPreference mClockDoubleClick;
+    SwitchPreference mEnableClock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,12 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
         PreferenceScreen prefs = getPreferenceScreen();
 
         mPicker = new ShortcutPickerHelper(this, this);
+
+        mEnableClock = (SwitchPreference) prefs.findPreference(PREF_CLOCK);
+        mEnableClock.setChecked(Settings.System.getInt(getActivity()
+                .getContentResolver(), Settings.System.STATUS_BAR_CLOCK,
+                0) == 1);
+        mEnableClock.setOnPreferenceChangeListener(this);
 
         mClockStyle = (ListPreference) findPreference(PREF_ENABLE);
         mClockStyle.setOnPreferenceChangeListener(this);
@@ -133,7 +142,12 @@ public class StatusBarClock extends SettingsPreferenceFragment implements
 
         AlertDialog dialog;
 
-        if (preference == mClockAmPmstyle) {
+        if (preference == mEnableClock) {
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK,
+                    (Boolean) newValue ? 1 : 0);
+            return true;
+        } else if (preference == mClockAmPmstyle) {
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE, val);

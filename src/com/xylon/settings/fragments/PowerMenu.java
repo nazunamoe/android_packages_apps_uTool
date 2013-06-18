@@ -18,6 +18,7 @@ import com.xylon.settings.SettingsPreferenceFragment;
 public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String PREF_EXPANDED_DESKTOP = "show_expanded_desktop";
+    private static final String PREF_PROFILES = "show_profiles";
     private static final String PREF_SCREENSHOT = "show_screenshot";
     private static final String PREF_TORCH_TOGGLE = "show_torch_toggle";
     private static final String PREF_AIRPLANE_TOGGLE = "show_airplane_toggle";
@@ -27,6 +28,7 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_POWER_KEYGUARD = "show_power_keyguard";
 
     SwitchPreference mExpandedDesktopPref;
+    SwitchPreference mShowProfiles;
     SwitchPreference mShowScreenShot;
     SwitchPreference mShowTorchToggle;
     SwitchPreference mShowAirplaneToggle;
@@ -41,6 +43,11 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
 
         // Load the preferences from an XML resource
         addPreferencesFromResource(R.xml.power_menu_settings);
+
+        mShowProfiles = (SwitchPreference) findPreference(PREF_PROFILES);
+        mShowProfiles.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.SYSTEM_PROFILES_ENABLED, 1) == 1));
+        mShowProfiles.setOnPreferenceChangeListener(this);
 
         mShowScreenShot = (SwitchPreference) findPreference(PREF_SCREENSHOT);
         mShowScreenShot.setChecked(Settings.System.getInt(getActivity()
@@ -95,12 +102,16 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
         boolean newValue;
 
         if (preference == mExpandedDesktopPref) {
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mContentRes,
                     Settings.System.POWER_MENU_EXPANDED_DESKTOP_ENABLED,
                     (Boolean) value ? 1 : 0);
             return true;
+        } else if (preference == mShowProfiles) {
+            Settings.System.putInt(mContentRes,
+                    Settings.System.SYSTEM_PROFILES_ENABLED,
+                    (Boolean) value ? 1 : 0);
         } else if (preference == mShowScreenShot) {
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_SCREENSHOT,
                     (Boolean) value ? 1 : 0);
             return true;
@@ -110,27 +121,27 @@ public class PowerMenu extends SettingsPreferenceFragment implements OnPreferenc
                     (Boolean) value);
             return true;
         } else if (preference == mShowAirplaneToggle) {
-            Settings.System.putInt(getActivity().getContentResolver(),
+            Settings.System.putInt(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_AIRPLANE_TOGGLE,
                     (Boolean) value ? 1 : 0);
             return true;
         } else if (preference == mShowNavBarHide) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_NAVBAR_HIDE,
                     (Boolean) value);
             return true;
         } else if (preference == mShowVolumeStateToggle) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_VOLUME_STATE_TOGGLE,
                     (Boolean) value);
             return true;
         } else if (preference == mShowRebootKeyguard) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_REBOOT_KEYGUARD,
                     (Boolean) value);
             return true;
         } else if (preference == mShowPowerKeyguard) {
-            Settings.System.putBoolean(getActivity().getContentResolver(),
+            Settings.System.putBoolean(mContentRes,
                     Settings.System.POWER_DIALOG_SHOW_POWER_KEYGUARD,
                     (Boolean) value);
             return true;

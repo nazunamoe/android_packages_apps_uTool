@@ -24,6 +24,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.xylon.settings.R;
@@ -44,7 +45,7 @@ public class PieControl extends SettingsPreferenceFragment
     private static final String PIE_BUTTON_STYLE = "pie_button_style";
     private static final String PIE_TRIGGER = "pie_trigger";
  
-    private ListPreference mPieControl;
+    private SwitchPreference mPieControl;
     private CheckBoxPreference mShowSnap;
     private CheckBoxPreference mShowText;
     private CheckBoxPreference mShowBackground;
@@ -79,25 +80,16 @@ public class PieControl extends SettingsPreferenceFragment
         mTrigger = (PreferenceScreen) prefSet.findPreference(PIE_TRIGGER);
         mButton = (PreferenceScreen) prefSet.findPreference(PIE_BUTTON);
         mButtonSecondLayer = (PreferenceScreen) prefSet.findPreference(PIE_BUTTON_SECOND_LAYER);
-        mPieControl = (ListPreference) prefSet.findPreference(PIE_CONTROL);
+        mPieControl = (SwitchPreference) prefSet.findPreference(PIE_CONTROL);
         mPieControl.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mPieControl) {
-            int index = mPieControl.findIndexOfValue((String) newValue);
-            int value = Integer.valueOf((String) newValue);
-            Settings.System.putInt(getContentResolver(),
+            Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.PIE_CONTROLS,
-                    value);
-            mPieControl.setSummary(mPieControl.getEntries()[index]);
-            if (value == 0) {
-                Settings.System.putInt(getContentResolver(),
-                        Settings.System.PIE_DISABLE_STATUSBAR_INFO, 0);
-                mDisableStatusBarInfo.setChecked(false);
-            }
-            propagatePieControl(value != 0);
+                    (Boolean) newValue ? 1 : 0);
         } else if (preference == mSecondLayer) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.PIE_SECOND_LAYER_ACTIVE, (Boolean) newValue ? 1 : 0);
@@ -126,12 +118,8 @@ public class PieControl extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
 
-        int pieControl = Settings.System.getInt(getContentResolver(),
-                Settings.System.PIE_CONTROLS, 0);
-        mPieControl.setValue(String.valueOf(pieControl));
-        mPieControl.setSummary(mPieControl.getEntry());
-        propagatePieControl(pieControl != 0);
-
+        mPieControl.setChecked(Settings.System.getInt(getContentResolver(),
+                Settings.System.PIE_CONTROLS, 0) == 1);
         mSecondLayer.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.PIE_SECOND_LAYER_ACTIVE, 0) == 1);
         mShowSnap.setChecked(Settings.System.getInt(getContentResolver(),
@@ -148,18 +136,4 @@ public class PieControl extends SettingsPreferenceFragment
     public void onPause() {
         super.onPause();
     }
-
-    private void propagatePieControl(boolean value) {
-        mSecondLayer.setEnabled(value);
-        mShowSnap.setEnabled(value);
-        mShowText.setEnabled(value);
-        mDisableStatusBarInfo.setEnabled(value);
-        mShowBackground.setEnabled(value);
-        mStyle.setEnabled(value);
-        mButton.setEnabled(value);
-        mButtonSecondLayer.setEnabled(value);
-        mButtonStyle.setEnabled(value);
-        mTrigger.setEnabled(value);
-    }
-
 }

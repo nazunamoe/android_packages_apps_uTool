@@ -10,6 +10,10 @@
         android:title="@string/title_show_airplane_toggle" />
 
     <SwitchPreference
+        android:key="show_profiles"
+        android:title="@string/title_show_profiles" />
+
+    <SwitchPreference
         android:key="show_screenshot"
         android:title="@string/title_show_screenshot" />
 

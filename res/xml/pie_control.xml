@@ -15,12 +15,9 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ListPreference
+    <SwitchPreference
         android:key="pie_control"
-        android:entries="@array/pie_control_entries"
-        android:entryValues="@array/pie_control_values"
-        android:title="@string/pie_control_title"
-        android:dialogTitle="@string/pie_control_dialog_title" />
+        android:title="@string/pie_control_title" />
 
     <PreferenceScreen
         android:key="pie_style"
