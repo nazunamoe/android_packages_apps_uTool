@@ -331,7 +331,6 @@
     <string name="glow_times_normal">Normal</string>
     <string name="size_42_dp_default">42 dp (voreingestellt)</string>
     <string name="size_48_dp_default">48 dp (voreingestellt)</string>
-    <string name="statusbar">Statusbar</string>
     <string name="top_of_navbar">Top of navbar</string>
     <string name="bottom_of_navbar">Bottom of navbar</string>
     <string name="regular">Regulär</string>
@@ -503,16 +502,15 @@
     <!-- General UI | Other Modifications unknown -->
 
     <string name="custom_carrier_label_title">Benutzerdefinierter Carrier Label</string>
-    <string name="custom_carrier_label_explain">Bitte schreiben Sie einen neuen Lable. Leerer Eintrag führt zum standart Label.</string>
     <string name="custom_carrier_label_notset">Custom label nicht gewählt</string>
-    <string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
+    <!--string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Zeigt Anzahl der Nachrichten in der Benachrichtigungsleiste</string>
     <string name="show_overflow_title">Zeige Menu UI Overflow</string>
     <string name="show_overflow_summary">Zeige die Menu UI Overflow Taste in Apps</string>
     <string name="show_overflow_toast_enable">Die 3-dot Menü Überlauf Taste kann erst nach einem App-Neustart angezeigt werden</string>
     <string name="show_overflow_toast_disable">Die 3-dot Menü Überlauf Taste kann erst nach einem App-Neustart versteckt werden werden</string>
     <string name="notification_behaviour_title">Benachrichtigungs Verhalten</string>
-    <string name="notification_behaviour_normal">Normal</string>
+    <string name="notification_behaviour_normal">Normal</string-->
     <string name="notification_behaviour_neverexpand">Nie expandieren</string>
     <string name="notification_behaviour_alwaysexpand">Immer expandieren</string>
     <string name="notification_behaviour_oldstyle">Alter Stil</string>
@@ -520,12 +518,12 @@
     <string name="notification_show_wifi_ssid_summary">Zeige den Namen des momentan verbundenen Netzwerks in der Benachrichtigungsleiste</string>
     <string name="notification_wallpaper_title">Wähle einen Benachrichtungungshintergrund</string>
     <string name="notification_wallpaper_summary">Du kannst den Hintergrund von diesem Menü aus entfernen</string>
-    <string name="notif_wallpaper_alpha_title">Benachrichtigungshintergrund Alpha</string>
+    <!--string name="notif_wallpaper_alpha_title">Benachrichtigungshintergrund Alpha</string>
     <string name="alpha_dialog_title">Wähle  Alpha Wert</string>
     <string name="brightness_slider_title">Statusbar Helligkeits Einstellung </string>
     <string name="brightness_slider_summary">Durch Wischen über die Statusbar die Helligkeit der Displays ändern. Unwirksam wenn auto-Helligkeit aktiviert ist.</string>
     <string name="wakeup_when_plugged_unplugged_title">Aufwachen bei Ladegerät</string>
-    <string name="wakeup_when_plugged_unplugged_summary">Gerät aufwecken bei Anschließen eines Ladekabels.</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Gerät aufwecken bei Anschließen eines Ladekabels.</string-->
     
     <!-- String for IconPicker -->
     <string name="icon_picker_title">Icon Source</string>
