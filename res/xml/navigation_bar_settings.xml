@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+-<?xml version="1.0" encoding="UTF-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
         <SwitchPreference
@@ -66,7 +66,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="nav_bar_color"
                 android:title="@string/navigation_bar_color_title"
-                android:defaultValue="0x000000" />
+                android:defaultValue="0xff000000" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="nav_button_color"
