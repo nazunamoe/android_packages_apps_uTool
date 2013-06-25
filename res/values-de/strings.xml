@@ -19,7 +19,7 @@
 
     <!-- Activity titles defined in AndroidManifest.xml -->
     <string name="title_general_ui">General UI</string>
-    <string name="title_statusbar_clock">Statusbar Clock</string>
+    <string name="title_statusbar_clock">Statusbar Uhr</string>
     <string name="title_quick_toggles">Quick Toggles</string>
     <string name="title_statusbar_signal">Statusbar Signal</string>
     <string name="title_statusbar">Statusbar</string>
@@ -217,14 +217,14 @@
     <string name="toggle_brightness">Helligkeit</string>
     <string name="toggle_screen">Bildschirm aus</string>
 
-    <string name="toggles_display_dialog">Choose which toggles to use</string>
+    <string name="toggles_display_dialog">Wähle Toggles</string>
     <string name="enabled_toggles_title">Aktiviere toggles</string>
-    <string name="enabled_toggles_summary">Choose toggles to display</string>
+    <string name="enabled_toggles_summary">Wähle Toggles</string>
     <string name="toggles_display_close">Schließen</string>
     <string name="toggles_order_title">Toggle Reihenfolge</string>
-    <string name="toggles_order_summary">Choose the order which your toggles are displayed</string>
+    <string name="toggles_order_summary">Wähle die Reihenfolge in welcher die Toggles angezeigt werden</string>
     <string name="toggles_per_row_title">Toggles pro Reihe</string>
-    <string name="toggles_per_row_summary">Choose how many toggles to show per row</string>
+    <string name="toggles_per_row_summary">Wähle wie viele Toggles per Reihe angezeigt werden sollen</string>
     <string name="toggle_favcontact_title">Bevorzugter Kontakt</string>
     <string name="toggle_favcontact_summary">Wähle deinen nevorzugten Kontakt</string>
     <string name="toggle_enable_fasttoggle_title">Aktiviere fast toggle</string>
@@ -360,8 +360,8 @@
 
     <!-- General UI -->
     <string name="custom_carrier_label_title">Benutzerdefinierter Prodiver Text</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Enter an empty label to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
+    <string name="custom_carrier_label_explain">Bitte fügen Sie ein neues Lable hinzu.Fügen Sie ein leeres Lable hinzu um die originalen Einstellungen wiederherzustellen.</string>
+    <string name="custom_carrier_label_notset">Custom label nicht ausgewählt</string>
     <string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Zeige Anzahl aktiver Benachrichtigungen in der Statusbar</string>
     <string name="show_overflow_title">Zeige Menu UI Overflow</string>
@@ -408,24 +408,24 @@
     <string name="dpi_group_app_list">Liste der Anwendungen</string>
     <string name="dpi_group_alert_add_app_title">Wähle eine App</string>
     <string name="dpi_groups_alert_remove_app">Lösche App</string>
-    <string name="dpi_groups_remove_app">Lösche %s App aus der Gruppe?</string>
+    <string name="dpi_groups_remove_app">Lösche die App aus der Gruppe?</string>
     <string name="dpi_groups_backuprestore_title">Backup and restore</string>
     <string name="dpi_groups_auto_backup">Automatisches Backup</string>
     <string name="dpi_groups_auto_backup_summary">Speichere deine Einstellungen mit jeder Veränderung</string>
     <string name="dpi_groups_backup_title">Backup</string>
-    <string name="dpi_groups_backup_summary">Backup your configuration</string>
+    <string name="dpi_groups_backup_summary">Backup deine Einstellungen</string>
     <string name="dpi_groups_restore_title">Restore</string>
-    <string name="dpi_groups_restore_summary">Restore your configuration</string>
-    <string name="dpi_groups_backup_done">Backup of configuration file done</string>
-    <string name="dpi_groups_restore_done">Configuration file restored</string>
-    <string name="dpi_groups_restore_default_title">Restore default groups</string>
-    <string name="dpi_groups_restore_default_summary">Remove custom DPI groups and leave the default groups</string>
+    <string name="dpi_groups_restore_summary">Restore deine Einstellungen</string>
+    <string name="dpi_groups_backup_done">Backup der Einstellungen fertig</string>
+    <string name="dpi_groups_restore_done">Backup wiederhergestellt</string>
+    <string name="dpi_groups_restore_default_title">standart Gruppe wiederhergestellt</string>
+    <string name="dpi_groups_restore_default_summary">entferne custom DPI Gruppen und füge die standart Gruppe hinzu</string>
     <string name="dpi_groups_delete_title">DPI Gruppe löschen</string>
-    <string name="dpi_groups_delete_summary">Willst du diese  DPI Gruppe löschen?</string>
+    <string name="dpi_groups_delete_summary">Willst du diese DPI Gruppe löschen?</string>
     <string name="customdpigroup">Gruppe hinzufügen</string>
     <string name="customdpigroup_summary">Füge eine dpi Gruppe hinzu</string>
     <string name="custom_dpi">Derzeitige dpi:</string>
-    <string name="customdpigroup_group_exists">The selected custom dpi group already exists.</string>
+    <string name="customdpigroup_group_exists">Die gewählte DPI Gruppe besteht bereits.</string>
     <string name="per_app_layout_title">Per app layout</string>
     <string name="per_app_layout_summary">Definiere Layout für jede App</string>
     <string name="per_app_layout_list_title">Application Liste</string>
