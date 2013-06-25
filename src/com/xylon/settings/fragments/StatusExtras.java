@@ -80,6 +80,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_HALO_PAUSE = "halo_pause";
     private static final String PREF_HALO_COLORS = "halo_colors";
     private static final String PREF_HALO_CIRCLE_COLOR = "halo_circle_color";
+    private static final String PREF_HALO_EFFECT_COLOR = "halo_effect_color";
     private static final String PREF_HALO_BUBBLE_COLOR = "halo_bubble_color";
     private static final String PREF_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
     private static final String PREF_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
@@ -112,6 +113,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     ColorPickerPreference mStatusBarColor;
     ColorPickerPreference mStatusColor;
     ColorPickerPreference mHaloCircleColor;
+    ColorPickerPreference mHaloEffectColor;
     ColorPickerPreference mHaloBubbleColor;
     ColorPickerPreference mHaloBubbleTextColor;
     ListPreference mNotificationsBehavior;
@@ -167,6 +169,9 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mHaloColors = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_COLORS);
         mHaloColors.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_COLORS, 0) == 1);
+
+        mHaloEffectColor = (ColorPickerPreference) findPreference(PREF_HALO_EFFECT_COLOR);
+        mHaloEffectColor.setOnPreferenceChangeListener(this);
 
         mHaloCircleColor = (ColorPickerPreference) findPreference(PREF_HALO_CIRCLE_COLOR);
         mHaloCircleColor.setOnPreferenceChangeListener(this);
@@ -425,6 +430,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_COLORS, mHaloColors.isChecked()
                     ? 1 : 0);
+            Helpers.restartSystemUI();
         }
 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
@@ -506,6 +512,15 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_CIRCLE_COLOR, intHex);
+            return true;
+        } else if (preference == mHaloEffectColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.HALO_EFFECT_COLOR, intHex);
+            Helpers.restartSystemUI();
             return true;
         } else if (preference == mHaloBubbleColor) {
             String hex = ColorPickerPreference.convertToARGB(
