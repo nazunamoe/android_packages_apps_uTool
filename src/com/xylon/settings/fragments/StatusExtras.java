@@ -78,6 +78,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     private static final String PREF_HALO_HIDE = "halo_hide";
     private static final String PREF_HALO_REVERSED = "halo_reversed";
     private static final String PREF_HALO_PAUSE = "halo_pause";
+    private static final String PREF_HALO_COLORS = "halo_colors";
     private static final String PREF_HALO_CIRCLE_COLOR = "halo_circle_color";
     private static final String PREF_HALO_BUBBLE_COLOR = "halo_bubble_color";
     private static final String PREF_HALO_BUBBLE_TEXT_COLOR = "halo_bubble_text_color";
@@ -104,6 +105,7 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
     CheckBoxPreference mHaloHide;
     CheckBoxPreference mHaloReversed;
     CheckBoxPreference mHaloPause;
+    CheckBoxPreference mHaloColors;
     CheckBoxPreference mStatusBarNotifCount;
     CheckBoxPreference mStatusbarSliderPreference;
     CheckBoxPreference mShowWifiName;
@@ -161,6 +163,10 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         mHaloReversed = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_REVERSED);
         mHaloReversed.setChecked(Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.HALO_REVERSED, 1) == 1);
+
+        mHaloColors = (CheckBoxPreference) prefSet.findPreference(PREF_HALO_COLORS);
+        mHaloColors.setChecked(Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HALO_COLORS, 0) == 1);
 
         mHaloCircleColor = (ColorPickerPreference) findPreference(PREF_HALO_CIRCLE_COLOR);
         mHaloCircleColor.setOnPreferenceChangeListener(this);
@@ -414,6 +420,10 @@ public class StatusExtras extends SettingsPreferenceFragment implements OnPrefer
         } else if (preference == mHaloPause) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_PAUSE, mHaloPause.isChecked()
+                    ? 1 : 0);
+        } else if (preference == mHaloColors) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HALO_COLORS, mHaloColors.isChecked()
                     ? 1 : 0);
         }
 
