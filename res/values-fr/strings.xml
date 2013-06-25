@@ -207,7 +207,7 @@
     <string name="menu_pie_trigger_settings_reset">Réinitialiser les dimensions de la zone</string>
     <string name="pie_trigger">Options de la zone de déclenchement</string>
     <string name="pie_trigger_note_title">Remarque</string>
-    <string name="pie_trigger_note_summary">Pour éviter les conflits avec la barre d\'état ou la barre de navigation, les déclencheurs sur ces bords sont automatiquement désactivés si l\'un d'eux (ou les deux) sont visibles</string>
+    <string name="pie_trigger_note_summary">Pour éviter les conflits avec la barre d\'état ou la barre de navigation, les déclencheurs sur ces bords sont automatiquement désactivés si l\'un d\'eux (ou les deux) sont visibles</string>
     <string name="pie_disable_ime_triggers_title">Désactiver les déclencheurs sur le clavier</string>
     <string name="pie_disable_ime_triggers_summary">Désactive et réduit la taille de la zone de déclenchement lorsque le clavier est actif</string>
     <string name="pie_background_color_title">Couleur d\'arrière-plan</string>
