@@ -3,19 +3,40 @@
 
     <string name="app_name">uTool</string>
 
-    <!-- Header Strings -->
-    <string name="user_interface">Benutzeroberfläche</string>
-    <string name="header_statusbar">Status Bar</string>
+   <!-- Header Strings -->
+    <string name="user_interface">Bernuteroberfläche</string>
+    <string name="bars">Bar Oberfläche</string>
+    <string name="system">System</string>
     <string name="cancel">Abbrechen</string>
     <string name="ok">OK</string>
-    <string name="general_ui">Allgemeine Oberfläche</string>
+    <string name="save">Speichern</string>
+    <string name="reset">Reset</string>
+    <string name="empty">Leer</string>
+    <string name="general_ui">General UI</string>
+    <string name="battery">Batterie</string>
     <string name="clock">Uhr</string>
     <string name="signal">Signal</string>
+    <string name="statusbar">Statusbar</string>
     <string name="quick_toggles">Quick Toggles</string>
+    <string name="power_widget">Power Widget</string>
+    <string name="status_extras">Status Extras</string>
     <string name="others">Anderes</string>
     <string name="navigation_bar">Navigation Bar</string>
     <string name="power_menu">Power Menu</string>
+    <string name="led_options">LED</string>
+    <string name="pie">PIE™</string>
+    <string name="spen_options">S Pen Gesturen</string>
+    <string name="header_system">System</string>
+    <string name="sound">Sound</string>
+    <string name="hybridsettings">Hybrid Properties</string>
+    <string name="lockscreen_options">Lockscreen</string>
+    <string name="lockscreen">Lockscreen</string>
+    <string name="ribbon">Ribbon™</string>
+    <string name="weather">Weather</string>
     <string name="tools">Tools</string>
+    <string name="bar_cat">Bar</string>
+    <string name="icon_cat">Status Icon</string>
+    <string name="notif_cat">Notification</string>
 
     <!-- Activity titles defined in AndroidManifest.xml -->
     <string name="title_general_ui">General UI</string>
@@ -435,5 +456,107 @@
 
     <string name="alert_reboot">Neustart benötigt</string>
     <string name="alert_reboot_message">Diese Änderung benötigt einen Neustart des Systems. Jetzt neu starten?</string>
+    
+    <!-- LED -->
+    <string name="led_on">LED an</string>
+    <string name="led_time_on">Zeit wie lange die LED an ist</string>
+    <string name="led_off">LED aus</string>
+    <string name="led_time_off">Zeit wie lange die LED aus ist</string>
+    <string name="led_time_seconds">" Sekunden"</string>
+    <string name="led_color_click">Klicke die LED um die Farbe zu wechseln</string>
+    <string name="title_led_screen_on">LED blinkt während das Display an ist</string>
+    <string name="led_custom_app">Wähle App</string>
+    <string name="led_custom_default">Standart</string>
+    <string name="led_change_app">Ändern</string>
+    <string name="led_delete_app">Löschen</string>
+    <string name="led_keep_app">Behalten</string>
+    <string name="led_custom_title">Benutzerdefinierte LED Apps</string>
+    <string name="led_custom_message">"Möchten Sie die App ändern: "</string>
+    <string name="led_edit_button">-</string>
+    <string name="led_test_notification">Test LED</string>
+    <string name="led_test_notification_message_now">"Jetzt testen der LED für: "</string>
+    <string name="led_test_notification_message_note">".  Bitte Bildschirm ausmachen um die LED zu sehen. Bitte nicht OK drücken , bevor Sie nicht die Farbe betrachtet haben."</string>
+    <string name="led_test_ok">OK</string>
+    <string name="title_charging_led_on">LED während das Ladens (Neustart notwendig)</string>
+    <string name="led_change_brightness">Helligkeit ändern</string>
+    <string name="led_brightness_default">Standart Helligkeit: 31</string>
+    
+    <!-- General UI | Recents Ram Bar -->
+    <string name="ram_bar">Recents RAM bar</string>
+    <string name="ram_bar_note_title">Beachte</string>
+    <string name="ram_bar_note_summary">Die Ram Bar zeigt wie Android wirklich das Ram nutzt. Bitte beachten Sie das es von Vorteil ist, Apps im Hintergrund laufen zu lassen, da sie sich dann schneller öffnen lassen. Für weitere Informationen zum Ram in Android finden Sie im Menü.</string>
+    <string name="ram_bar_mode_title">Recents RAM bar mode</string>
+    <string name="ram_bar_mode_dialog_title">Zeige RAM Bar bei letzten Apps Fenster</string>
+    <string name="ram_bar_none">Keine</string>
+    <string name="ram_bar_apps">Apps</string>
+    <string name="ram_bar_cache">Apps und Cache</string>
+    <string name="ram_bar_other">Apps, Cache und Anderes</string>
+    <string name="ram_bar_style_cat">Recents RAM Bar Stil</string>
+    <string name="ram_bar_color_app_mem_color">App RAM Farbe</string>
+    <string name="ram_bar_color_cache_mem_color">Cache RAM Farbe</string>
+    <string name="ram_bar_color_total_mem_color">Other RAM Farbe</string>
+    <string name="ram_bar_color_enabled">An</string>
+    <string name="ram_bar_color_disabled">Aus</string>
+    <string name="ram_bar_button_help">Hilfe</string>
+    <string name="ram_bar_button_reset">Farben wiederherstellen</string>
+    
+    <!-- General UI | Other Modifications unknown -->
+
+    <string name="custom_carrier_label_title">Benutzerdefinierter Carrier Label</string>
+    <string name="custom_carrier_label_explain">Bitte schreiben Sie einen neuen Lable. Leerer Eintrag führt zum standart Label.</string>
+    <string name="custom_carrier_label_notset">Custom label nicht gewählt</string>
+    <string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
+    <string name="status_bar_notif_count_summary">Zeigt Anzahl der Nachrichten in der Benachrichtigungsleiste</string>
+    <string name="show_overflow_title">Zeige Menu UI Overflow</string>
+    <string name="show_overflow_summary">Zeige die Menu UI Overflow Taste in Apps</string>
+    <string name="show_overflow_toast_enable">Die 3-dot Menü Überlauf Taste kann erst nach einem App-Neustart angezeigt werden</string>
+    <string name="show_overflow_toast_disable">Die 3-dot Menü Überlauf Taste kann erst nach einem App-Neustart versteckt werden werden</string>
+    <string name="notification_behaviour_title">Benachrichtigungs Verhalten</string>
+    <string name="notification_behaviour_normal">Normal</string>
+    <string name="notification_behaviour_neverexpand">Nie expandieren</string>
+    <string name="notification_behaviour_alwaysexpand">Immer expandieren</string>
+    <string name="notification_behaviour_oldstyle">Alter Stil</string>
+    <string name="notification_show_wifi_ssid_title">Zeige Wifi Network</string>
+    <string name="notification_show_wifi_ssid_summary">Zeige den Namen des momentan verbundenen Netzwerks in der Benachrichtigungsleiste</string>
+    <string name="notification_wallpaper_title">Wähle einen Benachrichtungungshintergrund</string>
+    <string name="notification_wallpaper_summary">Du kannst den Hintergrund von diesem Menü aus entfernen</string>
+    <string name="notif_wallpaper_alpha_title">Benachrichtigungshintergrund Alpha</string>
+    <string name="alpha_dialog_title">Wähle  Alpha Wert</string>
+    <string name="brightness_slider_title">Statusbar Helligkeits Einstellung </string>
+    <string name="brightness_slider_summary">Durch Wischen über die Statusbar die Helligkeit der Displays ändern. Unwirksam wenn auto-Helligkeit aktiviert ist.</string>
+    <string name="wakeup_when_plugged_unplugged_title">Aufwachen bei Ladegerät</string>
+    <string name="wakeup_when_plugged_unplugged_summary">Gerät aufwecken bei Anschließen eines Ladekabels.</string>
+    
+    <!-- String for IconPicker -->
+    <string name="icon_picker_title">Icon Source</string>
+    <string name="icon_picker_system_icons_title">System Icons</string>
+    <string name="icon_picker_gallery_title">Gallery</string>
+    <string name="icon_picker_pack_title">Icon Pack</string>
+    <string name="choose_app">Wähle eine App</string>
+    <string name="icon_picker_type">Wähle ein Icon Typ:</string>
+    <string name="icon_default">Standart</string>
+    <string name="icon_presets">System Icons</string>
+    <string name="icon_custom">Gallerie</string>
+    
+    <!-- HALO -->
+    <string name="halo_options_title">HALO</string>
+    <string name="halo_hide_title">Nach Aktivität HALO verstecken</string>
+    <string name="halo_hide_summary">HALO wird bei eingehenden Benachrichtigungen erscheinen und sich nach kurzer Zeit wieder verstecken</string>
+    <string name="halo_reversed_title">HALO umkehren</string>
+    <string name="halo_reversed_summary">Bewirbt sich um Aufgabenumschaltung und bewegende Gesten</string>
+    <string name="halo_state_title">HALO Politik</string>
+    <string name="halo_state_summary">Ermöglicht schwarz/weiß Auflistung der Meldungen</string>
+    <string name="halo_state_black">Schwarze Liste</string>
+    <string name="halo_state_white">Weiße Liste</string>
+    <string name="halo_pause_title">Pausiere aktive App</string>
+    <string name="halo_pause_summary">Beim Öffnen einer App mit HALO wir die darunter liegende App pausiert</string>
+    <string name="halo_colors_title">Benutzer Farben</string>
+    <string name="halo_colors_summary">Aktiviere benutzerdefinierte Farben </string>
+    <string name="halo_circle_color_title">Kreis Farbe</string>
+    <string name="halo_bubble_color_title">Sprechblasen Farbe</string>
+    <string name="halo_bubble_text_color_title">Sprechblasen Textfarbe</string>
+    <string name="halo_effect_color_title">Effect Farbe</string>
+    <string name="halo_effect_color_summary">Benötigt SystemUI Neustart</string>
+    
     
 </resources>
