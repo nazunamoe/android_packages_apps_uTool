@@ -501,9 +501,9 @@
     
     <!-- General UI | Other Modifications unknown -->
 
-    <string name="custom_carrier_label_title">Benutzerdefinierter Carrier Label</string>
+    <!--string name="custom_carrier_label_title">Benutzerdefinierter Carrier Label</string>
     <string name="custom_carrier_label_notset">Custom label nicht gewählt</string>
-    <!--string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
+    <string name="status_bar_notif_count_title">Zeige Benachrichtigungszähler</string>
     <string name="status_bar_notif_count_summary">Zeigt Anzahl der Nachrichten in der Benachrichtigungsleiste</string>
     <string name="show_overflow_title">Zeige Menu UI Overflow</string>
     <string name="show_overflow_summary">Zeige die Menu UI Overflow Taste in Apps</string>
@@ -516,9 +516,9 @@
     <string name="notification_behaviour_oldstyle">Alter Stil</string>
     <string name="notification_show_wifi_ssid_title">Zeige Wifi Network</string>
     <string name="notification_show_wifi_ssid_summary">Zeige den Namen des momentan verbundenen Netzwerks in der Benachrichtigungsleiste</string>
-    <string name="notification_wallpaper_title">Wähle einen Benachrichtungungshintergrund</string>
+    <!--string name="notification_wallpaper_title">Wähle einen Benachrichtungungshintergrund</string>
     <string name="notification_wallpaper_summary">Du kannst den Hintergrund von diesem Menü aus entfernen</string>
-    <!--string name="notif_wallpaper_alpha_title">Benachrichtigungshintergrund Alpha</string>
+    <string name="notif_wallpaper_alpha_title">Benachrichtigungshintergrund Alpha</string>
     <string name="alpha_dialog_title">Wähle  Alpha Wert</string>
     <string name="brightness_slider_title">Statusbar Helligkeits Einstellung </string>
     <string name="brightness_slider_summary">Durch Wischen über die Statusbar die Helligkeit der Displays ändern. Unwirksam wenn auto-Helligkeit aktiviert ist.</string>
