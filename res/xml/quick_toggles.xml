@@ -25,17 +25,28 @@
         android:summary="@string/toggles_per_row_summary"
         android:title="@string/toggles_per_row_title" />
 
-    <!--ListPreference
-        android:entries="@array/quicksettings_theme_style_entries"
-        android:entryValues="@array/quicksettings_theme_style_values"
-        android:key="quick_theme_style"
-        android:title="@string/quicksettings_theme_style"
-        android:summary="@string/quicksettings_theme_style_summary" />
+    <ListPreference
+        android:key="tile_background_style"
+        android:entries="@array/tile_background_style_entries"
+        android:entryValues="@array/tile_background_style_values"
+        android:title="@string/tile_background_style_title"
+        android:summary="@string/tile_background_style_summary" />
+
+     <Preference
+        android:key="random_colors"
+        android:title="@string/random_colors_title"
+        android:summary="@string/random_colors_summary" />
+
+     <net.margaritov.preference.colorpicker.ColorPickerPreference
+        android:key="tile_background_color"
+        android:title="@string/tile_background_color_title"
+        android:defaultValue="0xff000000"
+        alphaSlider="true" />
 
     <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="quick_text_color"
-        android:title="@string/quick_text_color_title"
-        android:defaultValue="0xffcccccc" /-->
+        android:key="tile_text_color"
+        android:title="@string/tile_text_color_title"
+        android:defaultValue="0xffffffff" />
 
     <CheckBoxPreference
         android:key="enable_fast_toggle"
