@@ -1099,5 +1099,15 @@
     <string name="alert_reboot">A reboot is needed</string>
     <string name="alert_reboot_message">This change needs a reboot in order to take effect, do you want to reboot now?</string>
 
+    <!-- ListView animation -->
+    <string name="listview_animation_title">ListView Animation</string>
+    <string name="listview_off">Off</string>
+    <string name="listview_wave_left">Wave (Left)</string>
+    <string name="listview_wave_right">Wave (Right)</string>
+    <string name="listview_scale">Scale</string>
+    <string name="listview_stack_top">Stack (Top)</string>
+    <string name="listview_stack_bottom">Stack (Bottom)</string>
+    <string name="listview_translate_left">Translate (Left)</string>
+    <string name="listview_translate_right">Translate (Right)</string>
 
 </resources>

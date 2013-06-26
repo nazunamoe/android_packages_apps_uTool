@@ -85,7 +85,8 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_POWER_CRT_SCREEN_OFF = "system_power_crt_screen_off";
     private static final String PREF_KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String PREF_KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
-
+    private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    
     private static final int TIMEOUT_DEFAULT = 5000; // 5s
 
     Preference mRamBar;
@@ -99,6 +100,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     ListPreference mKeyboardRotationTimeout;
 
     private boolean mIsCrtOffChecked = false;
+    private ListPreference mListViewAnimation;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -170,6 +172,18 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
         updateRamBar();
 
         setHasOptionsMenu(true);
+        
+        mListViewAnimation = (ListPreference) finePreference(KEY_LISTVIEW_ANIMATION);
+        
+        int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
+        		Settings.System.LISTVIEW_ANIMATION, 1);
+        		
+        mListViewAnimation.setValue(String.valueOf(listviewanimation));
+        
+        mListViewAnimation.setSummary(mListViewAnimation.getEntry());
+        
+        mListViewAnimation.setOnPreferenceChangeListener(this);
+        
     }
 
     @Override
@@ -266,7 +280,14 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             return true;
         }
         return false;
-    }
+    } else if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
 
     public void mKeyboardRotationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -276,4 +297,6 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
         AlertDialog alert = builder.create();
         alert.show();
     }
+
+
 }

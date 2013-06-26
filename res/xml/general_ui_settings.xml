@@ -80,6 +80,14 @@
             android:title="@string/show_overflow_title"
             android:summary="@string/show_overflow_summary"
             android:defaultValue="false" />
+            
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="1" />
 
         </PreferenceCategory>
 
