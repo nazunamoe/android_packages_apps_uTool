@@ -496,7 +496,11 @@ public class QuickToggles extends SettingsPreferenceFragment implements
 
     private void updateVisibility() {
         int visible = Settings.System.getInt(mContentRes,
+<<<<<<< HEAD
                     Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
+=======
+                    Settings.System.PREF_TILE_BACKGROUND_STYLE, 2);
+>>>>>>> parent of 96d180d... Revert "duplicate"
         if (visible == 2) {
             mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(false);
