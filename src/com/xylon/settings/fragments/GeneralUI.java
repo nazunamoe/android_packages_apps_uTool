@@ -86,6 +86,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     private static final String PREF_KEYBOARD_ROTATION_TOGGLE = "keyboard_rotation_toggle";
     private static final String PREF_KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
+    private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     
     private static final int TIMEOUT_DEFAULT = 5000; // 5s
 
@@ -101,6 +102,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
 
     private boolean mIsCrtOffChecked = false;
     private ListPreference mListViewAnimation;
+    private ListPreference mListViewInterpolator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -288,6 +290,14 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
                     listviewanimation);
             mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
             return true;
+     } else if (preference == mListViewInterpolator) {
+            int listviewinterpolator = Integer.valueOf((String) objValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) objValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                     Settings.System.LISTVIEW_INTERPOLATOR,
+                     listviewinterpolator);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;       
 
     public void mKeyboardRotationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
