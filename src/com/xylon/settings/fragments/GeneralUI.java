@@ -96,13 +96,17 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
     CheckBoxPreference mWakeUpWhenPluggedOrUnplugged;
     CheckBoxPreference mFullscreenKeyboard;
     CheckBoxPreference mCrtOff;
+    ListPreference mListViewAnimation;
     ListPreference mCrtMode;
     CheckBoxPreference mKeyboardRotationToggle;
     ListPreference mKeyboardRotationTimeout;
 
     private boolean mIsCrtOffChecked = false;
+<<<<<<< HEAD
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
+=======
+>>>>>>> eab7e12e35071517407ac4d41cf2ec75b01d7888
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -175,15 +179,11 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
 
         setHasOptionsMenu(true);
         
-        mListViewAnimation = (ListPreference) finePreference(KEY_LISTVIEW_ANIMATION);
-        
+        mListViewAnimation = (ListPreference) findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
-        		Settings.System.LISTVIEW_ANIMATION, 1);
-        		
+        		Settings.System.LISTVIEW_ANIMATION, 1);	
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
-        
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
-        
         mListViewAnimation.setOnPreferenceChangeListener(this);
         
     }
@@ -274,6 +274,14 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
                     Settings.System.SYSTEM_POWER_CRT_MODE, crtMode);
             mCrtMode.setSummary(mCrtMode.getEntries()[index]);
             return true;
+        } else if (preference == mListViewAnimation) {
+            int listviewanimation = Integer.valueOf((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION,
+                    listviewanimation);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            return true;
         } else if (preference == mKeyboardRotationTimeout) {
             int timeout = Integer.parseInt((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
@@ -282,6 +290,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             return true;
         }
         return false;
+<<<<<<< HEAD
     } else if (preference == mListViewAnimation) {
             int listviewanimation = Integer.valueOf((String) newValue);
             int index = mListViewAnimation.findIndexOfValue((String) newValue);
@@ -298,6 +307,8 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
                      listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;       
+=======
+>>>>>>> eab7e12e35071517407ac4d41cf2ec75b01d7888
 
     public void mKeyboardRotationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
