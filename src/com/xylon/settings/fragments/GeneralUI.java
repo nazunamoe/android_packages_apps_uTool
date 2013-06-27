@@ -177,13 +177,13 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
         
         mListViewAnimation = (ListPreference) findPreference(LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
-        		LISTVIEW_ANIMATION, 1);	
+        		Settings.System.LISTVIEW_ANIMATION, 1);	
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
         mListViewInterpolator = (ListPreference) findPreference(LISTVIEW_INTERPOLATOR);
         int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
-                LISTVIEW_INTERPOLATOR, 0);
+                Settings.System.LISTVIEW_INTERPOLATOR, 0);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this);
@@ -280,7 +280,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             int listviewanimation = Integer.valueOf((String) newValue);
             int index = mListViewAnimation.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                     LISTVIEW_ANIMATION,
+                     Settings.System.LISTVIEW_ANIMATION,
                      listviewanimation);
             mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
             return true;
@@ -288,7 +288,7 @@ public class GeneralUI extends SettingsPreferenceFragment implements OnPreferenc
             int listviewinterpolator = Integer.valueOf((String) newValue);
             int index = mListViewInterpolator.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
-                     LISTVIEW_INTERPOLATOR,
+                     Settings.System.LISTVIEW_INTERPOLATOR,
                      listviewinterpolator);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
             return true;            

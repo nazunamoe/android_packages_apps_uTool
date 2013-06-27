@@ -366,7 +366,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_COLOR, intHex);
+                    Settings.System.PREF_TILE_BACKGROUND_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
         } else if (preference == mTileBgPresColor) {
@@ -374,7 +374,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_PRESSED_COLOR, intHex);
+                    Settings.System.PREF_TILE_BACKGROUND_PRESSED_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
         } else if (preference == mTileTextColor) {
@@ -382,14 +382,14 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_TEXT_COLOR, intHex);
+                    Settings.System.PREF_TILE_TEXT_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
         } else if (preference == mTileBgStyle) {
             int val = Integer.valueOf((String) newValue);
             int index = mTileBgStyle.findIndexOfValue((String) newValue);
             Settings.System.putInt(mContentAppRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, val);
+                    Settings.System.PREF_TILE_BACKGROUND_STYLE, val);
             updateVisibility();
             Helpers.restartSystemUI();
             return true;
@@ -496,7 +496,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
 
     private void updateVisibility() {
         int visible = Settings.System.getInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
+                    Settings.System.PREF_TILE_BACKGROUND_STYLE, 2);
+                    Settings.System.PREF_TILE_BACKGROUND_STYLE, 2);
         if (visible == 2) {
             mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(false);
