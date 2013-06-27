@@ -93,6 +93,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private static final String PREF_COLLAPSE_BAR = "collapse_bar";
     private static final String PREF_DCLICK_ACTION = "dclick_action";
     private static final String PREF_CUSTOM_TOGGLE = "custom_toggle_pref";
+    private static final String PREF_CUSTOM_CAT = "custom_toggle";
+    private static final String PREF_CUSTOM_BUTTONS = "custom_buttons";
     private static final String PREF_TILE_BACKGROUND_STYLE = "tile_background_style";
     private static final String PREF_TILE_BACKGROUND_COLOR = "tile_background_color";
     private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
@@ -110,6 +112,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
 
     Preference mEnabledToggles;
     Preference mLayout;
+    PreferenceGroup mCustomCat;
+    PreferenceGroup mCustomButtons;
     CheckBoxPreference mCollapseAll;
     ListPreference mTogglesPerRow;
     ListPreference mTogglesStyle;
@@ -123,8 +127,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     ListPreference mOnDoubleClick;
     ListPreference mNumberOfActions;
     CustomTogglePref mCustomToggles;
-    PreferenceGroup mCustomCat;
-    PreferenceGroup mCustomButtons;
     ListPreference mTileBgStyle;
     ColorPickerPreference mTileBgColor;
     ColorPickerPreference mTileBgPresColor;
@@ -229,6 +231,9 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         mCustomToggles = (CustomTogglePref) findPreference(PREF_CUSTOM_TOGGLE);
         mCustomToggles.setParent(this);
 
+        mCustomCat = (PreferenceGroup) findPreference(PREF_CUSTOM_CAT);
+        mCustomButtons = (PreferenceGroup) findPreference(PREF_CUSTOM_BUTTONS);
+
         mRandomColors = (Preference) findPreference(PREF_RANDOM_COLORS);
 
         mTileBgStyle = (ListPreference) findPreference(PREF_TILE_BACKGROUND_STYLE);
@@ -268,15 +273,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private void onTogglesUpdate(Bundle toggleInfo) {
         mToggles = toggleInfo.getStringArrayList("toggles");
         sToggles = toggleInfo;
-        if (mToggles.contains("FAVCONTACT")) {
-            if (mFavContact != null) {
-                mFavContact.setEnabled(true);
-            }
-        } else {
-            if (mFavContact != null) {
-                getPreferenceScreen().removePreference(mFavContact);
-            }
-        }
     }
 
     @Override
@@ -455,13 +451,10 @@ public class QuickToggles extends SettingsPreferenceFragment implements
                         public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                             String toggleKey = availableToggles.get(which);
 
-                            if (isChecked)
+                            if (isChecked) {
                                 QuickToggles.addToggle(getActivity(), toggleKey);
-                            else
+                            } else {
                                 QuickToggles.removeToggle(getActivity(), toggleKey);
-
-                            if ("FAVCONTACT".equals(toggleKey)) {
-                                mFavContact.setEnabled(isChecked);
                             }
                         }
                     });

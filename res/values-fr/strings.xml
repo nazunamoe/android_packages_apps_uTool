@@ -390,6 +390,29 @@
     <string name="long_collapse">À l\'appui long</string>
     <string name="both_collapse">Les deux, long et court</string>
 
+    <!-- Tile background style and text color -->
+    <string name="tile_background_style_title">Style du fond des tuiles</string>
+    <string name="tile_background_style_summary">Vous permet de choisir entre aléatoire, couleur de remplissage et fond par défaut.</string>
+    <string name="tile_background_color_title">Couleur du fond des tuiles</string>
+    <string name="tile_background_pressed_color_title">Couleur du fond des tuiles appuyées</string>
+    <string name="tile_background_random">Couleur aléatoire</string>
+    <string name="tile_background_color_fill">Couleur de remplissage</string>
+    <string name="tile_background_default">Fond par défaut</string>
+    <string name="tile_custom_background_dialog_title">Style du fond des tuiles</string>
+    <string name="tile_text_color_title">Couleur du texte des tuiles</string>
+
+    <!-- Random colors -->
+    <string name="random_colors">Couleur aléatoire</string>
+    <string name="random_colors_title">Définir les couleurs aléatoires</string>
+    <string name="random_colors_summary">Définir les couleurs qui seront utilisées aléatoirement</string>
+    <string name="random_colors_reset_title">Réinitialiser les couleurs</string>
+    <string name="color_one">Couleur 1</string>
+    <string name="color_two">Couleur 2</string>
+    <string name="color_three">Couleur 3</string>
+    <string name="color_four">Couleur 4</string>
+    <string name="color_five">Couleur 5</string>
+    <string name="color_six">Couleur 6</string>
+
     <!-- Navigation Bar (Targets) -->
     <string name="right">À droite</string>
     <string name="left">À gauche</string>
