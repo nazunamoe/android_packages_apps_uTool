@@ -43,12 +43,6 @@
         android:defaultValue="0xff000000"
         alphaSlider="true" />
 
-     <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="tile_background_pressed_color"
-        android:title="@string/tile_background_pressed_color_title"
-        android:defaultValue="0xff161616"
-        alphaSlider="true" />
-
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="tile_text_color"
         android:title="@string/tile_text_color_title"
