@@ -67,7 +67,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_ONE, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_ONE, intHex);
             return true;
         } else if (preference == mTwo) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -75,7 +75,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_TWO, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_TWO, intHex);
             return true;
         } else if (preference == mThree) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -83,7 +83,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_THREE, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_THREE, intHex);
             return true;
         } else if (preference == mFour) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -91,7 +91,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_FOUR, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_FOUR, intHex);
             return true;
         } else if (preference == mFive) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -99,7 +99,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_FIVE, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_FIVE, intHex);
             return true;
         } else if (preference == mSix) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -107,7 +107,7 @@ public class RandomColors extends SettingsPreferenceFragment implements
             preference.setSummary(hex);
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(mContentRes,
-                    Settings.System.RANDOM_COLOR_SIX, intHex);
+                    Settings.System.PREF_RANDOM_COLOR_SIX, intHex);
             return true;
         }
         return false;
