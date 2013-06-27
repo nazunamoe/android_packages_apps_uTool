@@ -95,6 +95,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private static final String PREF_CUSTOM_TOGGLE = "custom_toggle_pref";
     private static final String PREF_TILE_BACKGROUND_STYLE = "tile_background_style";
     private static final String PREF_TILE_BACKGROUND_COLOR = "tile_background_color";
+    private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
     private static final String PREF_TILE_TEXT_COLOR = "tile_text_color";
     private static final String PREF_RANDOM_COLORS = "random_colors";
 
@@ -126,6 +127,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     PreferenceGroup mCustomButtons;
     ListPreference mTileBgStyle;
     ColorPickerPreference mTileBgColor;
+    ColorPickerPreference mTileBgPresColor;
     ColorPickerPreference mTileTextColor;
     Preference mRandomColors;
 
@@ -234,6 +236,9 @@ public class QuickToggles extends SettingsPreferenceFragment implements
 
         mTileBgColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_COLOR);
         mTileBgColor.setOnPreferenceChangeListener(this);
+
+        mTileBgPresColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_PRESSED_COLOR);
+        mTileBgPresColor.setOnPreferenceChangeListener(this);
 
         mTileTextColor = (ColorPickerPreference) findPreference(PREF_TILE_TEXT_COLOR);
         mTileTextColor.setOnPreferenceChangeListener(this);
@@ -368,6 +373,14 @@ public class QuickToggles extends SettingsPreferenceFragment implements
                     Settings.System.QUICK_SETTINGS_BACKGROUND_COLOR, intHex);
             Helpers.restartSystemUI();
             return true;
+        } else if (preference == mTileBgPresColor) {
+            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(mContentRes,
+                    Settings.System.QUICK_SETTINGS_BACKGROUND_PRESSED_COLOR, intHex);
+            Helpers.restartSystemUI();
+            return true;
         } else if (preference == mTileTextColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -494,12 +507,15 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         if (visible == 2) {
             mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(false);
+            mTileBgPresColor.setEnabled(false);
         } else if (visible == 1) {
             mRandomColors.setEnabled(false);
             mTileBgColor.setEnabled(true);
+            mTileBgPresColor.setEnabled(true);
         } else {
             mRandomColors.setEnabled(true);
             mTileBgColor.setEnabled(false);
+            mTileBgPresColor.setEnabled(true);
         }
     }
 
