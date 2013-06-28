@@ -421,6 +421,7 @@
     <string name="long_collapse">On long click</string>
     <string name="both_collapse">Both click and long click</string>
 
+<<<<<<< HEAD
     <!-- Tile background style and text color -->
     <string name="tile_background_style_title">Tile background style</string>
     <string name="tile_background_style_summary">Lets you choose from random, color fill or default background for tiles</string>
@@ -444,6 +445,8 @@
     <string name="color_five">Color five</string>
     <string name="color_six">Color six</string>
 
+=======
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
      <!-- Brightness slider -->
     <string name="on_top">On top</string>
     <string name="on_the_bottom">On the bottom</string>

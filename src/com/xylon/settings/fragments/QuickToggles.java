@@ -71,9 +71,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import net.margaritov.preference.colorpicker.ColorPickerView;
-
 public class QuickToggles extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, ShortcutPickerHelper.OnPickListener {
 
@@ -93,6 +90,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private static final String PREF_COLLAPSE_BAR = "collapse_bar";
     private static final String PREF_DCLICK_ACTION = "dclick_action";
     private static final String PREF_CUSTOM_TOGGLE = "custom_toggle_pref";
+<<<<<<< HEAD
     private static final String PREF_CUSTOM_CAT = "custom_toggle";
     private static final String PREF_CUSTOM_BUTTONS = "custom_buttons";
     private static final String PREF_TILE_BACKGROUND_STYLE = "tile_background_style";
@@ -100,6 +98,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
     private static final String PREF_TILE_TEXT_COLOR = "tile_text_color";
     private static final String PREF_RANDOM_COLORS = "random_colors";
+=======
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
 
     private final int PICK_CONTACT = 1;
 
@@ -127,11 +127,16 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     ListPreference mOnDoubleClick;
     ListPreference mNumberOfActions;
     CustomTogglePref mCustomToggles;
+<<<<<<< HEAD
     ListPreference mTileBgStyle;
     ColorPickerPreference mTileBgColor;
     ColorPickerPreference mTileBgPresColor;
     ColorPickerPreference mTileTextColor;
     Preference mRandomColors;
+=======
+    PreferenceGroup mCustomCat;
+    PreferenceGroup mCustomButtons;
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
 
     BroadcastReceiver mReceiver;
     ArrayList<String> mToggles;
@@ -231,6 +236,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         mCustomToggles = (CustomTogglePref) findPreference(PREF_CUSTOM_TOGGLE);
         mCustomToggles.setParent(this);
 
+<<<<<<< HEAD
         mCustomCat = (PreferenceGroup) findPreference(PREF_CUSTOM_CAT);
         mCustomButtons = (PreferenceGroup) findPreference(PREF_CUSTOM_BUTTONS);
 
@@ -248,6 +254,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         mTileTextColor = (ColorPickerPreference) findPreference(PREF_TILE_TEXT_COLOR);
         mTileTextColor.setOnPreferenceChangeListener(this);
 
+=======
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
         if (isSW600DPScreen(mContext) || isTablet(mContext)) {
             getPreferenceScreen().removePreference(mFastToggle);
             getPreferenceScreen().removePreference(mChooseFastToggleSide);
@@ -361,6 +369,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             Settings.System.putInt(mContentRes,
                     Settings.System.DCLICK_TOGGLE_REVERT, val);
             return true;
+<<<<<<< HEAD
         } else if (preference == mTileBgColor) {
             String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
             preference.setSummary(hex);
@@ -393,6 +402,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             updateVisibility();
             Helpers.restartSystemUI();
             return true;
+=======
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
         }
         return true;
     }
@@ -483,17 +494,11 @@ public class QuickToggles extends SettingsPreferenceFragment implements
                         }
                     });
             ad.show();
-       } else if (preference == mRandomColors) {
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            RandomColors fragment = new RandomColors();
-            ft.addToBackStack("pick_random_colors");
-            ft.replace(this.getId(), fragment);
-            ft.commit();
-            return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
+<<<<<<< HEAD
     private void updateVisibility() {
         int visible = Settings.System.getInt(mContentRes,
                     Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
@@ -512,6 +517,8 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         }
     }
 
+=======
+>>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
     public void refreshSettings() {
         refreshButtons();
     }
