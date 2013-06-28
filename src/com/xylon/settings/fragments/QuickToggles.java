@@ -236,26 +236,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         mCustomToggles = (CustomTogglePref) findPreference(PREF_CUSTOM_TOGGLE);
         mCustomToggles.setParent(this);
 
-<<<<<<< HEAD
-        mCustomCat = (PreferenceGroup) findPreference(PREF_CUSTOM_CAT);
-        mCustomButtons = (PreferenceGroup) findPreference(PREF_CUSTOM_BUTTONS);
-
-        mRandomColors = (Preference) findPreference(PREF_RANDOM_COLORS);
-
-        mTileBgStyle = (ListPreference) findPreference(PREF_TILE_BACKGROUND_STYLE);
-        mTileBgStyle.setOnPreferenceChangeListener(this);
-
-        mTileBgColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_COLOR);
-        mTileBgColor.setOnPreferenceChangeListener(this);
-
-        mTileBgPresColor = (ColorPickerPreference) findPreference(PREF_TILE_BACKGROUND_PRESSED_COLOR);
-        mTileBgPresColor.setOnPreferenceChangeListener(this);
-
-        mTileTextColor = (ColorPickerPreference) findPreference(PREF_TILE_TEXT_COLOR);
-        mTileTextColor.setOnPreferenceChangeListener(this);
-
-=======
->>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
         if (isSW600DPScreen(mContext) || isTablet(mContext)) {
             getPreferenceScreen().removePreference(mFastToggle);
             getPreferenceScreen().removePreference(mChooseFastToggleSide);
@@ -369,41 +349,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
             Settings.System.putInt(mContentRes,
                     Settings.System.DCLICK_TOGGLE_REVERT, val);
             return true;
-<<<<<<< HEAD
-        } else if (preference == mTileBgColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileBgPresColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_PRESSED_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileTextColor) {
-            String hex = ColorPickerPreference.convertToARGB(Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_TEXT_COLOR, intHex);
-            Helpers.restartSystemUI();
-            return true;
-        } else if (preference == mTileBgStyle) {
-            int val = Integer.valueOf((String) newValue);
-            int index = mTileBgStyle.findIndexOfValue((String) newValue);
-            Settings.System.putInt(mContentAppRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, val);
-            updateVisibility();
-            Helpers.restartSystemUI();
-            return true;
-=======
->>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
         }
         return true;
     }
@@ -498,27 +443,7 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 
-<<<<<<< HEAD
-    private void updateVisibility() {
-        int visible = Settings.System.getInt(mContentRes,
-                    Settings.System.QUICK_SETTINGS_BACKGROUND_STYLE, 2);
-        if (visible == 2) {
-            mRandomColors.setEnabled(false);
-            mTileBgColor.setEnabled(false);
-            mTileBgPresColor.setEnabled(false);
-        } else if (visible == 1) {
-            mRandomColors.setEnabled(false);
-            mTileBgColor.setEnabled(true);
-            mTileBgPresColor.setEnabled(true);
-        } else {
-            mRandomColors.setEnabled(true);
-            mTileBgColor.setEnabled(false);
-            mTileBgPresColor.setEnabled(true);
-        }
-    }
 
-=======
->>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
     public void refreshSettings() {
         refreshButtons();
     }
