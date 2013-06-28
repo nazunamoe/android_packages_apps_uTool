@@ -90,16 +90,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     private static final String PREF_COLLAPSE_BAR = "collapse_bar";
     private static final String PREF_DCLICK_ACTION = "dclick_action";
     private static final String PREF_CUSTOM_TOGGLE = "custom_toggle_pref";
-<<<<<<< HEAD
-    private static final String PREF_CUSTOM_CAT = "custom_toggle";
-    private static final String PREF_CUSTOM_BUTTONS = "custom_buttons";
-    private static final String PREF_TILE_BACKGROUND_STYLE = "tile_background_style";
-    private static final String PREF_TILE_BACKGROUND_COLOR = "tile_background_color";
-    private static final String PREF_TILE_BACKGROUND_PRESSED_COLOR = "tile_background_pressed_color";
-    private static final String PREF_TILE_TEXT_COLOR = "tile_text_color";
-    private static final String PREF_RANDOM_COLORS = "random_colors";
-=======
->>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
 
     private final int PICK_CONTACT = 1;
 
@@ -127,16 +117,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
     ListPreference mOnDoubleClick;
     ListPreference mNumberOfActions;
     CustomTogglePref mCustomToggles;
-<<<<<<< HEAD
-    ListPreference mTileBgStyle;
-    ColorPickerPreference mTileBgColor;
-    ColorPickerPreference mTileBgPresColor;
-    ColorPickerPreference mTileTextColor;
-    Preference mRandomColors;
-=======
-    PreferenceGroup mCustomCat;
-    PreferenceGroup mCustomButtons;
->>>>>>> parent of 769cda7... Port TeamBAKED's tile color supports
 
     BroadcastReceiver mReceiver;
     ArrayList<String> mToggles;
@@ -442,8 +422,6 @@ public class QuickToggles extends SettingsPreferenceFragment implements
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
-
-
     public void refreshSettings() {
         refreshButtons();
     }
